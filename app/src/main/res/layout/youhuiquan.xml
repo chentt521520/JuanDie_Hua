@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#f4f4f4" />
+
+    <LinearLayout
+        android:id="@+id/yhqn_lininput"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#f4f4f4"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/yhqn_edit"
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/biankuang1"
+            android:gravity="center_vertical"
+            android:hint="输入优惠券号码"
+            android:maxLength="20"
+            android:paddingLeft="12dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="match_parent"
+            android:background="#f4f4f4" />
+
+        <TextView
+            android:id="@+id/yhqn_tess"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/biankuang2"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="#f4f4f4" />
+
+    <ListView
+        android:id="@+id/yhqn_listv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:divider="#00000000"
+        android:dividerHeight="0dp"
+        android:scrollbars="none" />
+
+</LinearLayout>

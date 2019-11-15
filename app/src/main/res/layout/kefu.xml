@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/kefu_tetitl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:minHeight="30dp"
+        android:text="联系客服"
+        android:textColor="#666666"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/kefu_imhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/kfhead" />
+
+    <TextView
+        android:id="@+id/kefu_tets"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="14dp"
+        android:text="客服在线时间:周一至周日9:00-21:00"
+        android:textColor="#666666"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/kefu_rezx"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/biankuang_kefu" >
+
+        <ImageView
+            android:id="@+id/kefu_imzx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/kfzx" />
+
+        <TextView
+            android:id="@+id/kefu_tezx"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/kefu_imzx"
+            android:gravity="center_vertical"
+            android:minHeight="30dp"
+            android:text="在线客服"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/kefu_repho"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/biankuang_kefu" >
+
+        <ImageView
+            android:id="@+id/kefu_impho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:src="@drawable/kfdh" />
+
+        <TextView
+            android:id="@+id/kefu_tepho"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/kefu_impho"
+            android:gravity="center_vertical"
+            android:minHeight="30dp"
+            android:text="联系电话"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>

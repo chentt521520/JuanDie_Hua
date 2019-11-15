@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sp_linbot"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/biankuangs"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/goods_detail_online_service_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:onClick="Click"
+        android:layout_weight="1.2">
+
+        <TextView
+            android:id="@+id/goods_detail_online_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@mipmap/detail_person_service"
+            android:drawablePadding="@dimen/space_size_5"
+            android:gravity="center"
+            android:text="在线客服"
+            android:textColor="#666666"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <View style="@style/ui_vertical_line" />
+
+    <RelativeLayout
+        android:id="@+id/goods_detail_service_phone_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:onClick="Click">
+
+        <TextView
+            android:id="@+id/goods_detail_service_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@mipmap/detail_phone_service"
+            android:drawablePadding="@dimen/space_size_5"
+            android:gravity="center"
+            android:text="客服电话"
+            android:textColor="#666666"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <View style="@style/ui_vertical_line" />
+
+    <RelativeLayout
+        android:id="@+id/goods_detail_shopcart_view"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:onClick="Click"
+        android:layout_weight="1.2">
+
+        <TextView
+            android:id="@+id/goods_detail_shopcart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@mipmap/detail_shopping_car"
+            android:drawablePadding="@dimen/space_size_5"
+            android:gravity="center"
+            android:text="购物车"
+            android:textColor="#666666"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/goods_detail_add_shopcart"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="#59000000"
+        android:gravity="center"
+        android:onClick="Click"
+        android:text="加入购物车"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/goods_detail_buy_now"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:onClick="Click"
+        android:text="立即购买"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+</LinearLayout>

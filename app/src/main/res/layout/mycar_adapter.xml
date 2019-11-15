@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/mcarada_lin1"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/mcarada_imhead"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_static" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/mcarada_tetit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:paddingRight="12dp"
+                android:singleLine="true"
+                android:text="阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋阿迪达斯运动鞋"
+                android:textColor="#666666"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/mcarada_tepgg"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="规格"
+                android:textColor="#666666"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/mcarada_teprice"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:text="￥499.00"
+                android:textColor="#da0000"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:id="@+id/mcarada_lin2"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:background="#ffffff"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/mcarada_imdcrease"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/biankuangqb2"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#666666"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/mcarada_edcount"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/biankuangsx"
+                    android:digits="0123456789"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:text="2"
+                    android:textColor="#666666"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/mcarada_increase"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/biankuangqb2"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="#666666"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mcarada_imdetel"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/shanchu" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/mcarada_xuxian"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f4f4f4"
+        android:layerType="software" />
+
+</LinearLayout>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/sye_retop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_40">
+
+        <ImageView
+            android:id="@+id/sye_imlog"
+            android:layout_width="@dimen/space_size_28"
+            android:layout_height="@dimen/space_size_28"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/space_size_12"
+            android:src="@mipmap/index_service" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_size_10"
+            android:layout_marginEnd="@dimen/space_size_10"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/space_size_5"
+            android:paddingBottom="@dimen/space_size_5">
+
+            <TextView
+                android:id="@+id/sye_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/fenleitop"
+                android:gravity="center_vertical"
+                android:textColor="#bbbbbb"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/sye_imss"
+                android:layout_width="30dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/space_size_10"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fenlei_ss" />
+
+            <TextSwitcher
+                android:id="@+id/sye_edit1"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/sye_imss"
+                android:textColor="#bbbbbb"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/sye_imlogin"
+            android:layout_width="@dimen/space_size_28"
+            android:layout_height="@dimen/space_size_28"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/space_size_12"
+            android:src="@mipmap/index_login" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/sye_horscr"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/sye_retop"
+        android:background="#ffffff"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/sye_linhor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <include layout="@layout/item_index_nav" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/gwc_swp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sye_horscr">
+
+        <ScrollView
+            android:id="@+id/sye_scro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/sye_refrag"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp">
+
+                    <fragment
+                        android:id="@+id/sye_viewpagerlunbos"
+                        android:name="com.example.juandie_hua.lunbo.CycleViewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:descendantFocusability="blocksDescendants" />
+                </RelativeLayout>
+
+                <com.example.juandie_hua.mainactivity.goods.MyGridView
+                    android:id="@+id/index_navigation_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:listSelector="@null"
+                    android:numColumns="4"
+                    android:paddingTop="@dimen/space_size_10"
+                    android:paddingBottom="@dimen/space_size_10"
+                    android:verticalSpacing="@dimen/space_size_10" />
+
+                <LinearLayout
+                    android:id="@+id/show_receive_coupon_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        style="@style/ui_line"
+                        android:layout_marginTop="@dimen/space_size_10"
+                        android:layout_marginBottom="@dimen/space_size_5" />
+
+                    <ImageView
+                        android:id="@+id/index_new_user_welfare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/index_red_package" />
+
+                    <View
+                        style="@style/ui_line"
+                        android:layout_marginTop="@dimen/space_size_5"
+                        android:layout_marginBottom="@dimen/space_size_10" />
+                </LinearLayout>
+
+                <include layout="@layout/include_index_good_list" />
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/sye_gotop"
+            android:layout_width="@dimen/space_size_50"
+            android:layout_height="@dimen/space_size_50"
+            android:layout_gravity="end"
+            android:layout_marginBottom="@dimen/space_size_50"
+            android:paddingEnd="@dimen/space_size_15"
+            android:paddingBottom="@dimen/space_size_15"
+            android:src="@drawable/top"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/get_red_package"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/space_size_10"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/get_red_package_close"
+                android:layout_width="@dimen/space_size_35"
+                android:layout_height="@dimen/space_size_35"
+                android:layout_alignParentEnd="true"
+                android:paddingEnd="@dimen/space_size_15"
+                android:src="@drawable/xx" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_size_50"
+                android:layout_below="@+id/get_red_package_close"
+                android:layout_marginStart="@dimen/space_size_10"
+                android:layout_marginEnd="@dimen/space_size_10">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.6"
+                    android:background="@drawable/bg_corner_black_30" />
+
+                <ImageView
+                    android:id="@+id/red_package"
+                    android:layout_width="@dimen/space_size_45"
+                    android:layout_height="@dimen/space_size_45"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/space_size_15"
+                    android:src="@mipmap/red_package" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/space_size_10"
+                    android:layout_toEndOf="@+id/red_package"
+                    android:text="登录娟蝶，尽享海量福利"
+                    android:textColor="#fff5f5"
+                    android:textSize="@dimen/font_size_14" />
+
+                <TextView
+                    android:id="@+id/get_red_package_login"
+                    android:layout_width="@dimen/space_size_90"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/space_size_8"
+                    android:layout_marginEnd="@dimen/space_size_12"
+                    android:layout_marginBottom="@dimen/space_size_8"
+                    android:background="@drawable/bg_btn_corner_gradient"
+                    android:gravity="center"
+                    android:text="立即登录"
+                    android:textColor="#fff5f5"
+                    android:textSize="@dimen/font_size_14" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

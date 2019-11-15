@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ordqr_linheka"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ordqr_teheka"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="贺卡留言"
+            android:textColor="#666666"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/ordqr_teheka1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="使用推荐贺卡留言"
+            android:textColor="#da0000"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ordqr_imhekago"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fhy" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/heka_reinp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" >
+
+        <EditText
+            android:id="@+id/heka_edheka"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/roundbackground_qrdd"
+            android:gravity="left"
+            android:hint="请输入贺卡内容，200字以内"
+            android:maxLength="200"
+            android:padding="8dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/heka_tezi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="200"
+            android:textColor="#999999"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/heka_tequit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:text="完成"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+</LinearLayout>

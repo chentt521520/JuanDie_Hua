@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/paysuc_retop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/paysuc_imreturn"
+            android:layout_width="30dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fh" />
+
+        <TextView
+            android:id="@+id/paysuc_tetitl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="支付成功"
+            android:textColor="#666666"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/paysuc_imv"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/paysuc_tets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="感谢您在本店购物！支付操作已成功！\n请记住您的订单号为："
+            android:textColor="#00BA9B"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/paysuc_tets1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="特赠予优惠券：1711309f，感谢惠顾！"
+            android:textColor="#f23030"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

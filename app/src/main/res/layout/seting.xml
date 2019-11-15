@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f4f4f4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_size_12"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/set_linmm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/set_immm"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/srmm" />
+
+            <TextView
+                android:id="@+id/set_temm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@id/set_immm"
+                android:text="修改登录密码"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/set_temmset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/set_immmgo"
+                android:gravity="center"
+                android:text="已设置"
+                android:textColor="#999"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/set_immmgo"
+                android:layout_width="20dp"
+                android:layout_height="@dimen/space_size_18"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/go" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/set_linwx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/set_imwx"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/srmm" />
+
+            <TextView
+                android:id="@+id/set_tewx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@+id/set_imwx"
+                android:maxLength="22"
+                android:text="修改登录密码"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/set_tewxset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/set_imwxgo"
+                android:text="已设置"
+                android:textColor="#999"
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/set_imwxgo"
+                android:layout_width="20dp"
+                android:layout_height="@dimen/space_size_18"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/go" />
+        </RelativeLayout>
+
+        <View style="@style/ui_line" />
+
+        <RelativeLayout
+            android:id="@+id/set_lingx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12">
+
+            <ImageView
+                android:id="@+id/set_imgx"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/jcgx" />
+
+            <TextView
+                android:id="@+id/set_tegx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@+id/set_imgx"
+                android:gravity="center"
+                android:text="检查更新"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/set_tegx1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="检查更新"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <View style="@style/ui_line" />
+
+        <RelativeLayout
+            android:id="@+id/set_clean"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12">
+
+            <ImageView
+                android:id="@+id/set_imclean"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/qchc" />
+
+            <TextView
+                android:id="@+id/set_teclean"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@+id/set_imclean"
+                android:text="清除缓存"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <View style="@style/ui_line" />
+
+        <RelativeLayout
+            android:id="@+id/set_fx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12">
+
+            <ImageView
+                android:id="@+id/set_imfx"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/fxper" />
+
+            <TextView
+                android:id="@+id/set_tefx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@+id/set_imfx"
+                android:text="分享给好友"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/set_imfxgo"
+                android:layout_width="20dp"
+                android:layout_height="@dimen/space_size_18"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/go" />
+        </RelativeLayout>
+
+        <View style="@style/ui_line" />
+
+        <RelativeLayout
+            android:id="@+id/set_abuus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_size_12">
+
+            <ImageView
+                android:id="@+id/set_imabuus"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/abuus" />
+
+            <TextView
+                android:id="@+id/set_teabuus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_12"
+                android:layout_toEndOf="@+id/set_imabuus"
+                android:text="关于我们"
+                android:textColor="#666"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/set_imabuusgo"
+                android:layout_width="20dp"
+                android:layout_height="@dimen/space_size_18"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/go" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/set_tequit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>

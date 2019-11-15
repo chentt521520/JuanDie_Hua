@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/wodyhq_linte"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/wodyhq_tewsy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="未使用"
+            android:textColor="@color/select_telogin"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/wodyhq_teysy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已使用"
+            android:textColor="@color/select_telogin"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/wodyhq_teygq"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已过期"
+            android:textColor="@color/select_telogin"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal">
+
+
+        <View
+            android:id="@+id/wodyhq__hen1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_loginhen" />
+
+        <View
+            android:id="@+id/wodyhq__hen2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_loginhen" />
+
+        <View
+            android:id="@+id/wodyhq__hen3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_loginhen" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/wodyhq_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_f4f4f4">
+
+        <ListView
+            android:id="@+id/yhqfr1_listv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#ffffff"
+            android:divider="#00000000"
+            android:dividerHeight="0dp"
+            android:scrollbars="none" />
+
+        <include
+            android:id="@+id/yhqfr1_nogoods"
+            layout="@layout/no_goods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
+    </FrameLayout>
+
+</LinearLayout>

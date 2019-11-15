@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/djsbg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/daojis_te"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="七夕倒计时"
+        android:textColor="#ff0212"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:id="@+id/daojis_lin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/daojis_tetian"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/roundbackground_daojis"
+            android:gravity="center"
+            android:text="00"
+            android:textColor="#444"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daojis_tetian1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="天"
+            android:textColor="#444"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/daojis_texshi"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/roundbackground_daojis"
+            android:gravity="center"
+            android:text="00"
+            android:textColor="#444"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daojis_texiaos1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="时"
+            android:textColor="#444"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/daojis_tefen"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/roundbackground_daojis"
+            android:gravity="center"
+            android:text="00"
+            android:textColor="#444"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daojis_tefen1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="分"
+            android:textColor="#444"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/daojis_temiao"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:background="@drawable/roundbackground_daojis"
+            android:gravity="center"
+            android:text="00"
+            android:textColor="#444"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/daojis_temiao1"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="秒"
+            android:textColor="#444"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

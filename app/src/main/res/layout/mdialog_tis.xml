@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/yuanjiaoquit" >
+
+    <TextView
+        android:id="@+id/sye_hbts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#ffffff"
+        android:gravity="left"
+        android:minHeight="30dp"
+        android:text=""
+        android:lineSpacingExtra="7dp"
+        android:textColor="#666666"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#da0000" />
+
+    <TextView
+        android:id="@+id/sye_hbtsok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="12dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:minHeight="20dp"
+        android:text="立即前往"
+        android:textColor="#da0000"
+        android:textSize="16sp" />
+
+</LinearLayout>

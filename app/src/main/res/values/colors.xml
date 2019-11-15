@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="hon">#da0000</color>
+    <color name="hei">#f4f4f4</color>
+    <color name="xin">#da0000</color>
+    <color name="bai">#ffffff</color>
+    <color name="navpage">#FFE1E8EB</color>
+
+    <color name="white">#ffffff</color>
+    <color name="grey_f2f2f2">#F2F2F2</color>
+    <color name="grey_999999">#999999</color>
+    <color name="grey_aaaaaa">#aaaaaa</color>
+    <color name="grey_bbbbbb">#bbbbbb</color>
+    <color name="grey_f7f7f7">#f7f7f7</color>
+    <color name="grey_fcfcfc">#fcfcfc</color>
+    <color name="grey_f0f0f0">#f0f0f0</color>
+    <color name="grey_f4f4f4">#f4f4f4</color>
+    <color name="white_fff">#ffffff</color>
+    <color name="black_000000">#000000</color>
+    <color name="black_333333">#333333</color>
+    <color name="black_8c8c8c">#8c8c8c</color>
+    <color name="black_656565">#656565</color>
+    <color name="black_666666">#666666</color>
+    <color name="red_main">#EC008C</color>
+    <color name="red_d5001b">#d5001b</color>
+    <color name="red">#da0000</color>
+
+    <color name="transparent">#00000000</color>
+</resources>

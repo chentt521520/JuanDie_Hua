@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/hbi_retop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/hbi_imreturn"
+            android:layout_width="30dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fh" />
+
+        <TextView
+            android:id="@+id/hbi_tetit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="我的花币"
+            android:textColor="#666666"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hbi_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ed5353" >
+
+        <TextView
+            android:id="@+id/hbi_tehbi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="可用花币:"
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/hbi_tehbi1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/hbi_tehbi"
+            android:layout_below="@id/hbi_tehbi"
+            android:gravity="top"
+            android:text="0"
+            android:textColor="#ffffff"
+            android:textSize="55sp" />
+
+        <TextView
+            android:id="@+id/hbi_tehbi2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/hbi_tehbi1"
+            android:layout_below="@id/hbi_tehbi"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@id/hbi_tehbi1"
+            android:gravity="top"
+            android:text="个"
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <TextView
+        android:id="@+id/hbi_teshouzhi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:text="收支明细"
+        android:textColor="#666666"
+        android:textSize="15sp" />
+
+    <ListView
+        android:id="@+id/hbi_listv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:divider="#00000000"
+        android:dividerHeight="0dp"
+        android:scrollbars="none" />
+
+    <include
+        android:id="@+id/view_hbino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/no_goods" />
+
+</LinearLayout>

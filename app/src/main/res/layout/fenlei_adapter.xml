@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/sort_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_45"
+        android:background="@drawable/fenlei_selecter"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/fenle_vshu"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="#da0000" />
+
+        <ImageView
+            android:id="@+id/fenle_imt"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/loadi" />
+
+        <TextView
+            android:id="@+id/fenlei_tename"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingRight="5dp"
+            android:text="亲爱的用户"
+            android:textColor="@color/black_000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f8f8f8" />
+
+</LinearLayout>

@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.juandie_hua"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 50
+        versionName "5.9.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'juandiexianhua'
+            keyPassword 'sjcazldl'
+            storeFile file('D:/项目交接/签名/娟蝶鲜花APP.keystore')
+            storePassword 'sjcazldl'
+        }
+        debug {
+            storeFile file('D:/项目交接/签名/娟蝶鲜花APP.keystore')
+            storePassword 'sjcazldl'
+            keyAlias = 'juandiexianhua'
+            keyPassword 'sjcazldl'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            //说明so的路径为该libs路径，关联所有地图SDK的so文件
+            jni.srcDirs = []    //disable automatic ndk-build
+        }
+    }
+
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //这里修改apk文件名
+                outputFileName = "juandie-v${variant.versionName}.apk"
+            }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    api 'com.android.support:support-v4:27.1.1'
+    implementation files('libs/alipaySdk-20170922.jar')
+    implementation files('libs/badgeview.jar')
+    implementation files('libs/glide-3.7.0.jar')
+    implementation files('libs/jcore-android-1.1.9.jar')
+    implementation files('libs/jpush-android-3.1.1.jar')
+    implementation files('libs/MobCommons-2018.0131.1510.jar')
+    implementation files('libs/MobTools-2018.0131.1510.jar')
+    implementation files('libs/SaaS_AppAnalytics_Android_SDK_V4.0.27.jar')
+    implementation files('libs/ShareSDK-Alipay-3.4.0.jar')
+    implementation files('libs/ShareSDK-Alipay-Core-3.4.0.jar')
+    implementation files('libs/ShareSDK-Alipay-Moments-3.4.0.jar')
+    implementation files('libs/ShareSDK-Core-3.1.3.jar')
+    implementation files('libs/ShareSDK-QQ-3.1.3.jar')
+    implementation files('libs/ShareSDK-QZone-3.1.3.jar')
+    implementation files('libs/ShareSDK-SinaWeibo-3.1.3.jar')
+    implementation files('libs/ShareSDK-Wechat-3.1.3.jar')
+    implementation files('libs/ShareSDK-Wechat-Core-3.1.3.jar')
+    implementation files('libs/ShareSDK-Wechat-Favorite-3.1.3.jar')
+    implementation files('libs/ShareSDK-Wechat-Moments-3.1.3.jar')
+    implementation files('libs/umeng-analytics-v6.1.2.jar')
+    implementation files('libs/volley.jar')
+    implementation files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
+    implementation files('libs/xUtils-3.3.36.jar')
+    implementation project(':meiqiasdk')
+
+    implementation 'com.alibaba:fastjson:1.1.55.android'
+    implementation 'com.android.support:recyclerview-v7:27.0.0'
+
+    implementation 'com.pgyersdk:sdk:3.0.7'
+}

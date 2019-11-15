@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/hb_lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/hb_imsh"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sh" />
+
+        <RelativeLayout
+            android:id="@+id/hb_reje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e52600" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/hb_qian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#e52600"
+                    android:gravity="center"
+                    android:lineSpacingExtra="5dp"
+                    android:text="￥"
+                    android:textColor="#f4ed7d"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/hb_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#e52600"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="5dp"
+                    android:text="150"
+                    android:textColor="#f4ed7d"
+                    android:textSize="40sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hb_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e52600"
+            android:gravity="center"
+            android:lineSpacingExtra="10dp"
+            android:text="爱情鲜花"
+            android:textColor="#f4ed7d"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/hb_imxia"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/xia" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/hb_imclose"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_below="@id/hb_lin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/hbclose" />
+
+</RelativeLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/myorderitem_linhed"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/myorderitem_teztai"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="订单状态:  "
+            android:textColor="#333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/myorderitem_teztai1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="待收货"
+            android:textColor="#b2b2b2"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/myorderitem_teddhao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="1232134234234"
+            android:textColor="#b2b2b2"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="12dp"
+        android:background="#f4f4f4" />
+
+    <com.example.juandie_hua.mainactivity.goods.MyListView
+        android:id="@+id/order_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#fff123"
+        android:dividerHeight="0dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/xuxian"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/myorderitem_linte"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/myorderitem_te1"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/roundbackground_order"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="付款"
+            android:textColor="#da0000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/myorderitem_te2"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/roundbackground_orderno"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="评价"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/myorderitem_te3"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/roundbackground_orderno"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="查看订单"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f4f4f4" />
+
+</LinearLayout>

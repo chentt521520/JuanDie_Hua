@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical" >
+
+
+    <RelativeLayout
+        android:id="@+id/yijian_reiterm"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/yijian_tecon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="反馈类型"
+            android:textColor="#666666"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:id="@+id/yijian_linitem1"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@id/yijian_tecon"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/yijian_teit1"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="产品"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/yijian_teit2"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="投诉"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/yijian_teit3"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="询问"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yijian_linitem2"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_below="@id/yijian_linitem1"
+            android:layout_toRightOf="@id/yijian_tecon"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/yijian_teit21"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="售后"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/yijian_teit22"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="求购"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/yijian_teit23"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/roundbackground_tuijianyu"
+                android:gravity="center"
+                android:text="其他"
+                android:textColor="@color/select_telogin"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/yijian_reyoux"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/yijian_teyoux"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="邮箱:    "
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/yijian_edyoux"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/yijian_teyoux"
+            android:background="@null"
+            android:hint="选填，以便反馈结果告知您"
+            android:maxLength="23"
+            android:paddingRight="20dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#f4f4f4" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/yijian_resjh"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/yijian_tesjh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="手机:    "
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/yijian_edsjh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/yijian_tesjh"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="必填，以便反馈结果告知您"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingRight="20dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#f4f4f4" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/yijian_reyj"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/yijian_teyj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="描述:    "
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/yijian_edyj"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/yijian_teyj"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="必填，请填写反馈内容"
+            android:maxLength="211"
+            android:paddingRight="20dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/yijian_tetjiao"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:maxLength="10"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</LinearLayout>

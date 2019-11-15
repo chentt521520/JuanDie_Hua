@@ -1,0 +1,63 @@
+<resources>
+
+    <string name="app_name">娟蝶鲜花</string>
+    <string name="app_tip">提示</string>
+    <string name="pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+
+    <string name="text_null">--</string>
+    <!--fengmian-->
+    <string name="jump_to_setting">跳转到手机设置</string>
+    <string name="net_connect_error">网络连接失败,请设置网络</string>
+    <string name="new_version_update">娟蝶鲜花新版本上线了</string>
+    <string name="update_now">立即更新</string>
+    <string name="ignore">忽略</string>
+
+
+    <!--我的-->
+    <string name="un_login">未登录</string>
+    <string name="my_order">我的订单</string>
+    <string name="unpay_order">待付款</string>
+    <string name="unsend_order">待发货</string>
+    <string name="unprise_order">待评价</string>
+    <string name="all_order">全部</string>
+    <string name="vip_auth">会员权限</string>
+    <string name="follow_official_account">关注服务号</string>
+    <string name="service_account">娟蝶鲜花</string>
+    <string name="my_coupon">我的优惠券</string>
+    <string name="brithday_anniversary_notice">生日/纪念日提醒</string>
+    <string name="order_search">订单查询</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="service_online">在线咨询</string>
+    <string name="service_onphone">电话咨询</string>
+    <string name="recent_scan">最近浏览</string>
+    <string name="complain_suggest">投诉建议</string>
+    <string name="has_some_coupon">有%1$s张优惠券可用</string>
+    <string name="search_now">立即查看</string>
+    <string name="click_to_receive">点击领取</string>
+    <string name="add_notice">添加提醒</string>
+
+
+    <string name="follow_juandie_account">关注娟蝶微信公众号</string>
+    <string name="juandie_account_tip">发货、物流通知早知道</string>
+    <string name="juandie_service_account">娟蝶服务号</string>
+    <string name="copy_service_account">点击复制服务号，去微信搜索</string>
+    <string name="save_service_account_qrcode">保存二维码 微信扫一扫</string>
+    <string name="scan_to_follow">去微信，扫一扫关注</string>
+
+
+    <!--优惠券-->
+    <string name="unuse_coupon">未使用(%1$s)</string>
+    <string name="used_coupon">已使用(%1$s)</string>
+    <string name="out_date_coupon">已过期(%1$s)</string>
+
+
+    <declare-styleable name="VerifyCode">
+        <attr name="codeTextSize" format="dimension" />
+        <attr name="codeBackground" format="color" />
+        <attr name="codeLength" format="integer" />
+        <attr name="isContainChar" format="boolean" />
+        <attr name="pointNum" format="integer" />
+        <attr name="linNum" format="integer" />
+    </declare-styleable>
+
+</resources>

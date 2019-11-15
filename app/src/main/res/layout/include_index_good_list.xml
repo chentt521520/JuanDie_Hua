@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--新品专区-->
+    <LinearLayout
+        android:id="@+id/sye_linxin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:id="@+id/sye_xinlinz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="新品专区"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sye_xints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="爱·给最特别的你"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+
+        <com.example.juandie_hua.mainactivity.sye_daojishi
+            android:id="@+id/sye_daojs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridxin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+
+    <!--热销鲜花-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="热销鲜花"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="送给最爱的TA"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+    <!--精品礼盒系列-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="精品礼盒系列"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="臻选礼盒，开启浪漫之旅"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridjinx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+    <!--生活鲜花-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="生活鲜花"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="生活方式，代表了做人的态度"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridsheng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+    <!--开业花篮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="开业花篮"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="送礼首选，商务往来必备"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridkye"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2" />
+    <!--绿植盆栽-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="绿植盆栽"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="送礼首选，商务往来必备"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridlvz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+
+    <!--创意礼品-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="创意礼品"
+                android:textColor="@color/black_333333"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/dot_black" />
+
+            <View
+                style="@style/ui_index_line"
+                android:background="@color/black_333333" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/space_size_5"
+            android:text="萌宠礼物，给她无时无刻的陪伴"
+            android:textColor="#787878"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <com.example.juandie_hua.mainactivity.goods.MyGridView
+        android:id="@+id/sye_mygridlip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:numColumns="2"
+        android:padding="@dimen/space_size_5" />
+</LinearLayout>

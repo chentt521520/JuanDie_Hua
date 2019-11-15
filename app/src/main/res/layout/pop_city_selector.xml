@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_picker_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/back_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="#ffffff">
+
+        <com.example.juandie_hua.mycar.QNumberPicker
+            android:id="@+id/pop_picker_province"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bai"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+        <com.example.juandie_hua.mycar.QNumberPicker
+            android:id="@+id/pop_picker_city"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bai"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone" />
+
+        <com.example.juandie_hua.mycar.QNumberPicker
+            android:id="@+id/pop_picker_district"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bai"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+
+        <View style="@style/ui_line" />
+
+        <TextView
+            android:id="@+id/pop_picker_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/pop_picker_confirm"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="取消"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/pop_picker_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="确定"
+            android:textColor="@color/red"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/gdlistitem_imsp"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/fh" />
+
+    <TextView
+        android:id="@+id/gdlistitem_teprice"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center_vertical"
+        android:text="123"
+        android:textColor="#da0000"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/gdlistitem_tename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="123"
+        android:textColor="#666666"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/gdlistitem_tesale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="123"
+        android:textColor="#999999"
+        android:textSize="12sp" />
+
+</LinearLayout>

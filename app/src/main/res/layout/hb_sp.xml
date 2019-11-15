@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/hb_splintop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="优惠券"
+            android:textColor="#666666"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/hb_spimhb"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/cc" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/hb_sptei"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="可领取优惠券"
+        android:textColor="#666666"        android:textSize="16sp" />
+
+    <ListView
+        android:id="@+id/hb_splistv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#ffffff"
+        android:scrollbars="none" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/hb_spteok"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#f34a4a"
+        android:gravity="center"
+        android:text="一键领取"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+</LinearLayout>

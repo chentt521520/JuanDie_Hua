@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/gg_teqx"
+        android:layout_width="@dimen/space_size_35"
+        android:layout_height="@dimen/space_size_30"
+        android:layout_gravity="end"
+        android:paddingTop="@dimen/space_size_8"
+        android:paddingEnd="@dimen/space_size_15"
+        android:src="@mipmap/cancel_btn" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp">
+
+
+        <RelativeLayout
+            android:id="@+id/gg_lin"
+            android:layout_width="match_parent"
+            android:layout_height="75dp">
+
+            <ImageView
+                android:id="@+id/gg_imhead"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/user_static" />
+
+            <TextView
+                android:id="@+id/gg_tetit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_size_15"
+                android:layout_marginTop="@dimen/space_size_5"
+                android:layout_toEndOf="@+id/gg_imhead"
+                android:lineSpacingExtra="@dimen/space_size_3"
+                android:text="@string/text_null"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/gg_teprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/space_size_15"
+                android:layout_marginBottom="@dimen/space_size_5"
+                android:layout_toEndOf="@+id/gg_imhead"
+                android:text="@string/text_null"
+                android:textColor="#DC001C"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            style="@style/ui_line"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp" />
+
+        <ListView
+            android:id="@+id/gg_listv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_size_200"
+            android:divider="@color/transparent" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/gg_teqr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_btn_corner_gradient"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

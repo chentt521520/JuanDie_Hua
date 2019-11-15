@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/zhmm_retop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/zhmm_imreturn"
+            android:layout_width="30dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fh" />
+
+        <TextView
+            android:id="@+id/zhmm_tetit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="找回密码"
+            android:textColor="#666666"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/zhmm_qiehuan"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#f4f4f4"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/zhmm_qiehuan1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <com.example.juandie_hua.percenter.CircleTextView
+                android:id="@+id/zhmm_yuan1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <com.example.juandie_hua.percenter.CircleTextView
+                android:id="@+id/zhmm_yuan11"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/zhmm_teyanzhen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="验证用户名"
+                android:textColor="#da0000"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#f4f4f4" />
+
+        <LinearLayout
+            android:id="@+id/zhmm_qiehuan2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <com.example.juandie_hua.percenter.CircleTextView
+                android:id="@+id/zhmm_yuan2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <com.example.juandie_hua.percenter.CircleTextView
+                android:id="@+id/zhmm_yuan21"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#ffffff"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/zhmm_texinmm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="设置新密码"
+                android:textColor="#777777"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/zhmm_qiehuan_"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:orientation="horizontal" >
+
+        <View
+            android:id="@+id/zhmm_hen1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_loginhen" />
+
+        <View
+            android:id="@+id/zhmm_hen2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_loginhen" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/zhmm_resjh"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <ImageView
+            android:id="@+id/zhmm_imsjh"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/sjhim" />
+
+        <EditText
+            android:id="@+id/zhmm_edsjh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/zhmm_imsjh"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="请输入手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingRight="20dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/zhmm_imsjh"
+            android:background="#f4f4f4" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zhmm_reyzm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <ImageView
+            android:id="@+id/zhmm_imyzm"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dxim" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/zhmm_imyzm"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/zhmm__edyzm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@null"
+                android:digits="0123456789"
+                android:hint="6位短信验证码"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingRight="20dp"
+                android:textColor="#666666"
+                android:textColorHint="#999999"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#f4f4f4" />
+
+            <com.example.juandie_hua.percenter.TimerTextView
+                android:id="@+id/zhmm_tegetcode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@null"
+                android:gravity="center"
+                android:maxLength="10"
+                android:text="获取验证码"
+                android:textColor="#da0000"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/zhmm_setxinmm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/zhmm_imxmmhead"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/user_static" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f4f4f4" />
+
+        <RelativeLayout
+            android:id="@+id/zhmm_rexmm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" >
+
+            <ImageView
+                android:id="@+id/zhmm_imxmm"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/srmm" />
+
+            <EditText
+                android:id="@+id/zhmm_edxmm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/zhmm_imxmm"
+                android:background="@null"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="请输入新密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:paddingRight="20dp"
+                android:textColor="#666666"
+                android:textColorHint="#999999"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/zhmm_imxmm"
+                android:background="#f4f4f4" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/zhmm_rerexmm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" >
+
+            <ImageView
+                android:id="@+id/zhmm_imrexmm"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/srmmre" />
+
+            <EditText
+                android:id="@+id/zhmm_edrexmm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/zhmm_imrexmm"
+                android:background="@null"
+                android:digits="0123456789qwertyuiopasdfghjklzxcvbnm"
+                android:hint="请再次输入新密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:paddingRight="20dp"
+                android:textColor="#666666"
+                android:textColorHint="#999999"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f4f4f4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f4f4f4"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/zhmm_tenext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/roundbackground_login"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="下一步"
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

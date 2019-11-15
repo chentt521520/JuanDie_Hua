@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/txl_retop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/txl_imreturn"
+            android:layout_width="30dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fh" />
+
+        <LinearLayout
+            android:id="@+id/consec_lin"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/txl_imreturn"
+            android:orientation="horizontal"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:id="@+id/comper_imsea"
+                android:layout_width="30dp"
+                android:layout_height="17dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ss" />
+
+            <com.example.juandie_hua.mycar.contact.ClearEditText
+                android:id="@+id/filter_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/biankuangxia1"
+                android:hint="在联系人中搜索"
+                android:singleLine="true"
+                android:textSize="15.0dip" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <ListView
+        android:id="@+id/country_lvcountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <ImageView
+        android:id="@+id/comper_imnodata"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:src="@drawable/nocom" />
+
+    <TextView
+        android:id="@+id/second_teno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="10dp"
+        android:text="暂时没有数据"
+        android:textColor="#7a7a80"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/second_viewv"
+        android:layout_width="5dp"
+        android:layout_height="1dp"
+        android:background="#FADFC3" />
+
+    <TextView
+        android:id="@+id/second_teno1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="10dp"
+        android:text="可在手机设置中修改,允许获取通讯录权限"
+        android:textColor="#7a7a80"
+        android:textSize="16sp" />
+
+</LinearLayout>

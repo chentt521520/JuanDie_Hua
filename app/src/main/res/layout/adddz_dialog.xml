@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <com.example.juandie_hua.mycar.QNumberPicker
+        android:id="@+id/adddzpic1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <com.example.juandie_hua.mycar.QNumberPicker
+        android:id="@+id/adddzpic2"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone" />
+
+    <com.example.juandie_hua.mycar.QNumberPicker
+        android:id="@+id/adddzpic3"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/adddz_linxz"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal" >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/adddz_tequxiao"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/adddz_teok"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#da0000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

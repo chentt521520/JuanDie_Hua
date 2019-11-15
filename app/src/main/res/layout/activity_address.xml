@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_f4f4f4"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/space_size_90"
+        android:layout_marginTop="@dimen/space_size_12"
+        android:background="@color/white_fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/space_size_12">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_size_45">
+
+                <TextView
+                    android:id="@+id/addshdz_teshrx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="收货人姓名："
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/addshdz_edshrnamex"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/space_size_12"
+                    android:layout_marginEnd="@dimen/space_size_12"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint="请至少输入2个字符"
+                    android:inputType="text|textMultiLine"
+                    android:textColor="#666666"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View style="@style/ui_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_size_45"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/addshdz_teshrphox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="收货人手机号："
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/addshdz_edshrphx"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/space_size_12"
+                    android:layout_marginEnd="@dimen/space_size_12"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:digits="0123456789"
+                    android:hint="请输入11位手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:textColor="#666666"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@null"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addshdz_lintxl"
+            android:layout_width="80dp"
+            android:layout_height="@dimen/space_size_90"
+            android:layout_weight="0"
+            android:background="@drawable/biankuangz"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/addshdz_imtxl"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/txl" />
+
+            <TextView
+                android:id="@+id/addshdz_tetxl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/font_size_8"
+                android:text="通讯录"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/ui_line"
+        android:layout_marginStart="@dimen/space_size_12"
+        android:layout_marginEnd="@dimen/space_size_12" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_45"
+        android:background="@color/white_fff"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/space_size_12"
+        android:paddingEnd="@dimen/space_size_12">
+
+        <TextView
+            android:id="@+id/addshdz_teshrdz"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="省、市、区："
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/addshdz_teshrdz1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/space_size_12"
+            android:layout_toRightOf="@id/addshdz_teshrdz"
+            android:gravity="center_vertical"
+            android:hint="请选择"
+            android:maxLines="1"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <View
+            style="@style/ui_line"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_45"
+        android:background="@color/white_fff"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/space_size_12"
+        android:paddingEnd="@dimen/space_size_12">
+
+        <TextView
+            android:id="@+id/addshdz_teshrxxdz"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="收货详细地址："
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/addshdz_edshrxxdz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_size_12"
+            android:layout_toRightOf="@id/addshdz_teshrxxdz"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:hint="请至少输入5个字符"
+            android:inputType="text|textMultiLine"
+            android:maxLength="36"
+            android:paddingRight="20dp"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <View
+            style="@style/ui_line"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_45"
+        android:background="@color/white_fff"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/space_size_12"
+        android:paddingEnd="@dimen/space_size_12">
+
+        <TextView
+            android:id="@+id/addshdz_tedhr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="订购人姓名："
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/addshdz_eddhrname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_size_12"
+            android:layout_toRightOf="@id/addshdz_tedhr"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:hint="请至少输入2个字符"
+            android:inputType="text|textMultiLine"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+
+        <View
+            style="@style/ui_line"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_45"
+        android:background="@color/white_fff"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/space_size_12"
+        android:paddingEnd="@dimen/space_size_12">
+
+        <TextView
+            android:id="@+id/addshdz_tedhrpho"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="订购人手机号："
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/addshdz_eddhrph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_size_12"
+            android:layout_toRightOf="@id/addshdz_tedhrpho"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:digits="0123456789"
+            android:hint="请输入11位手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:textColor="#666666"
+            android:textColorHint="#999999"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/addshdz_teok"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/bg_gradient"
+        android:gravity="center"
+        android:maxLength="10"
+        android:text="保存"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</LinearLayout>

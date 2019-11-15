@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_fff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_size_35"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/red_main" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_size_15"
+            android:layout_marginEnd="@dimen/space_size_15"
+            android:text="@string/follow_juandie_account"
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/font_size_18" />
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/red_main" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_size_12"
+        android:text="@string/juandie_account_tip"
+        android:textColor="@color/black_666666"
+        android:textSize="@dimen/font_size_14" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_size_35"
+        android:background="@drawable/bk_border_grey"
+        android:orientation="vertical"
+        android:padding="@dimen/space_size_10">
+
+        <ImageView
+            android:id="@+id/ui_service_account_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/attention_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/space_size_12"
+            android:text="@string/juandie_service_account"
+            android:textColor="@color/black_333333"
+            android:textSize="@dimen/font_size_14" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ui_copy_service_account"
+        android:layout_width="@dimen/space_size_270"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_size_35"
+        android:background="@drawable/bg_btn_corner_gradient"
+        android:gravity="center"
+        android:text="@string/copy_service_account"
+        android:textColor="@color/white_fff"
+        android:textSize="@dimen/font_size_16" />
+
+    <TextView
+        android:id="@+id/save_service_account_qrcode"
+        android:layout_width="@dimen/space_size_270"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_size_20"
+        android:background="@drawable/bk_corner_red"
+        android:gravity="center"
+        android:text="@string/save_service_account_qrcode"
+        android:textColor="@color/red_main"
+        android:textSize="@dimen/font_size_16" />
+
+</LinearLayout>
