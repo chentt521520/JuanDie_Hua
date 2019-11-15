@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.mycar.orderpay.SendDateSelect;
+import com.example.juandie_hua.mycar.orderpay.beizu;
+import com.example.juandie_hua.mycar.orderpay.heka;
+import com.example.juandie_hua.mycar.orderpay.youhuiquan;
 import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.good.GoodListAty;
@@ -15,6 +18,7 @@ import com.example.juandie_hua.mainactivity.other_web;
 import com.example.juandie_hua.ui.login.Loginphowx;
 import com.example.juandie_hua.ui.me.MySC;
 import com.example.juandie_hua.ui.order.AddressManager;
+import com.example.juandie_hua.ui.order.CreateOrder;
 
 public class UiHelper {
 
@@ -26,6 +30,11 @@ public class UiHelper {
     public static final int fromGoodDetail = 00001;
 
     public static final int chooseAddress = 00002;
+    public static final int chooseSenfTime = 00003;
+    public static final int leaveMessage = 00004;
+    public static final int remark = 00005;
+    public static final int coupon = 00006;
+    public static final int serviceNumber = 00007;
 
     public static final String packShopCat = "com.example.juandie_hua.Ui.ShopCatActivity";
 
@@ -101,8 +110,9 @@ public class UiHelper {
 
     /**
      * 收藏界面
+     *
      * @param activity activity
-     * @param type type=1代表我的收藏，2代表浏览记录
+     * @param type     type=1代表我的收藏，2代表浏览记录
      */
     public static void toMySCActivity(Activity activity, String type) {
         Intent i = new Intent(activity, MySC.class);
@@ -112,8 +122,32 @@ public class UiHelper {
 
 
     public static void toSendTimeSelect(Activity activity) {
-        Intent i = new Intent(activity, SendDateSelect.class);
-        UiHelper.toActivity(activity, i);
+        Intent intent = new Intent(activity, SendDateSelect.class);
+        activity.startActivityForResult(intent, chooseSenfTime);
+        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    public static void toCouponActivity(Activity activity) {
+        Intent ix = new Intent(activity, youhuiquan.class);
+//        Bundle bundlex = new Bundle();
+//        bundlex.putStringArrayList("yhq", list_yhqstr);
+//        ix.putExtras(bundlex);
+        activity.startActivity(ix);
+        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    public static void toMessageActivity(Activity activity) {
+        Intent ix_hk = new Intent(activity, heka.class);
+//        ix_hk.putExtra("hk", );
+        activity.startActivity(ix_hk);
+        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    public static void toRamarkActivity(Activity activity) {
+        Intent intent = new Intent(activity, beizu.class);
+//    ix_bz.putExtra("bz", te_bzxx.getText().toString());
+        activity.startActivity(intent);
+        activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
     public static void finish(Activity activity) {

@@ -74,7 +74,13 @@ public class ShopCartFavorAdapter extends BaseAdapter {
         final int i = position;
 
         final ShopCartFavor data = favorList.get(i);
-        ImageUtils.setImage(context, data.getThumb(), holder.image);
+
+        if (data.getThumb().contains("https")) {
+            ImageUtils.setImage(context, data.getThumb(), holder.image);
+        } else if (data.getGoods_thumb().contains("https")) {
+            ImageUtils.setImage(context, data.getGoods_thumb(), holder.image);
+        }
+
         String name = data.getName();
         if (name.contains("-")) {
             holder.goodType.setText(name.split("-")[0]);

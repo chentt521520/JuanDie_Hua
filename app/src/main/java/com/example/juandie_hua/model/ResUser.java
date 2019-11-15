@@ -182,18 +182,18 @@ public class ResUser {
          * rank_discount_number : 1
          */
 
-        private int total_order_amount;
+        private String total_order_amount;
         private String c;
         private String rank_type;
         private String rank_text;
         private String rank_discount;
-        private int rank_discount_number;
+        private String rank_discount_number;
 
-        public int getTotal_order_amount() {
+        public String getTotal_order_amount() {
             return total_order_amount;
         }
 
-        public void setTotal_order_amount(int total_order_amount) {
+        public void setTotal_order_amount(String total_order_amount) {
             this.total_order_amount = total_order_amount;
         }
 
@@ -229,11 +229,11 @@ public class ResUser {
             this.rank_discount = rank_discount;
         }
 
-        public int getRank_discount_number() {
+        public String getRank_discount_number() {
             return rank_discount_number;
         }
 
-        public void setRank_discount_number(int rank_discount_number) {
+        public void setRank_discount_number(String rank_discount_number) {
             this.rank_discount_number = rank_discount_number;
         }
     }

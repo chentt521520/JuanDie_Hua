@@ -713,8 +713,8 @@
                     android:layout_height="match_parent"
                     android:background="#ffffff"
                     android:listSelector="@null"
+                    android:padding="@dimen/space_size_5"
                     android:numColumns="2"
-                    android:padding="10dp"
                     android:scrollbars="none" />
             </LinearLayout>
         </ScrollView>

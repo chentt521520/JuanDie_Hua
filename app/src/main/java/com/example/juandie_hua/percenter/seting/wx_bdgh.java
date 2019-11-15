@@ -37,6 +37,7 @@ import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
 import com.example.juandie_hua.percenter.TimerTextView;
 import com.example.juandie_hua.utils.SharedPreferenceUtils;
+import com.example.juandie_hua.utils.StatusBarUtils;
 import com.example.juandie_hua.utils.StrUtils;
 
 public class wx_bdgh extends Activity {
@@ -100,6 +101,8 @@ public class wx_bdgh extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wx_bdgh);
+        StatusBarUtils.with(this).setBarColor(R.color.white_fff);
+
         x.view().inject(this);
         handler = new MyHandler(wx_bdgh.this);
         setviewhw();

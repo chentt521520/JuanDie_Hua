@@ -11,6 +11,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -41,16 +42,17 @@ import com.example.juandie_hua.lunbo.ViewFactory;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
+import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
+import com.example.juandie_hua.mainactivity.adapter.ShopCartFavorAdapter;
 import com.example.juandie_hua.mainactivity.goods.MyGridView;
 import com.example.juandie_hua.mainactivity.goods.MyListView;
 import com.example.juandie_hua.mainactivity.goods.check_pic;
-import com.example.juandie_hua.mainactivity.goods.gdlist_adaData;
-import com.example.juandie_hua.mainactivity.goods.gdlist_adapter;
 import com.example.juandie_hua.mainactivity.goods.pj_adaData;
 import com.example.juandie_hua.mainactivity.goods.pj_adapter;
 import com.example.juandie_hua.mainactivity.goods.pj_more;
 import com.example.juandie_hua.model.Coupon;
 import com.example.juandie_hua.model.GoodSpecs;
+import com.example.juandie_hua.model.ShopCartFavor;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.ShopCatActivity;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
@@ -169,8 +171,8 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     LinearLayout lin_remai;
     @ViewInject(R.id.sp_gridv)
     GridView grv_list;
-    gdlist_adapter recommendAdapter;
-    List<gdlist_adaData> list;
+//    gdlist_adapter recommendAdapter;
+//    List<gdlist_adaData> list;
 
     /**
      * 商品详情
@@ -281,6 +283,8 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     private String is_festival = "";
     private CusPopWindow popSpecs;
     private CustomDialog dialog;
+    private List<ShopCartFavor> favorList;
+    private ShopCartFavorAdapter favorAdapter;
 
 
     @Override
@@ -467,14 +471,18 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
 
 
     private void setviewlisten() {
-        grv_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        favorAdapter.setOnGoodListCallback(new OnGoodListCallback<ShopCartFavor>() {
+            @Override
+            public void setOnAddShopCallback(View view, ShopCartFavor data) {
+                addInShopCart(data.getId(), 0);
+            }
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+            public void setOnItemClickCallback(View view, ShopCartFavor data) {
                 im_top.setVisibility(View.GONE);
-                goods_id = list.get(position).getId();
-                xutils_getsp(list.get(position).getId());//推荐的商品
+                goods_id = data.getId();
+                xutils_getsp(data.getId());//推荐的商品
                 scr.scrollTo(0, 0);
                 setselect(1);
                 canonc = false;
@@ -562,10 +570,11 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     private void setviewdata() {
         setselect(1);
 
-        list = new ArrayList<>();
+//        list = new ArrayList<>();
         grv_list.setSelector(new ColorDrawable(Color.TRANSPARENT));
-        recommendAdapter = new gdlist_adapter(GoodDetailsAty.this, list);
-        grv_list.setAdapter(recommendAdapter);
+//        recommendAdapter = new gdlist_adapter(GoodDetailsAty.this, list);
+        favorAdapter = new ShopCartFavorAdapter(GoodDetailsAty.this, favorList);
+        grv_list.setAdapter(favorAdapter);
 
         listv_v.setSelector(new ColorDrawable(Color.TRANSPARENT));
         list_pj = new ArrayList<>();
@@ -679,6 +688,8 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
 
             @Override
             public void onResponse(String result) {
+
+                Log.e("~~~~~~~~", result + "");
                 JSONObject jso1;
                 try {
                     jso1 = new JSONObject(result);
@@ -791,23 +802,32 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                         te_hhao1.setText(data.getString("goods_sn"));
                         JSONArray jsa_list = data.getJSONArray("goods_like_list");
 
-                        if (jsa_list.length() >= 1) {
-                            lin_remai.setVisibility(View.VISIBLE);
-                            list.removeAll(list);
-                            recommendAdapter.notifyDataSetChanged();
-                            for (int i = 0; i < jsa_list.length(); i++) {
-                                JSONObject jso_list = jsa_list.getJSONObject(i);
-                                list.add(new gdlist_adaData(jso_list
-                                        .getString("id"), jso_list
-                                        .getString("goods_thumb"), jso_list
-                                        .getString("shop_price"), jso_list
-                                        .getString("name"), jso_list
-                                        .getString("sell_number")));
-                            }
-                            recommendAdapter.notifyDataSetChanged();
-                        } else {
+                        favorList = JSON.parseArray(data.getString("goods_like_list"), ShopCartFavor.class);
+
+                        if (StrUtils.listIsEmpty(favorList)) {
                             lin_remai.setVisibility(View.GONE);
+                        } else {
+                            lin_remai.setVisibility(View.VISIBLE);
+                            favorAdapter.refresh(favorList);
                         }
+//                        if (jsa_list.length() >= 1) {
+//                            lin_remai.setVisibility(View.VISIBLE);
+//                            list.removeAll(list);
+//                            recommendAdapter.notifyDataSetChanged();
+//                            for (int i = 0; i < jsa_list.length(); i++) {
+//                                JSONObject jso_list = jsa_list.getJSONObject(i);
+//                                list.add(new gdlist_adaData(jso_list
+//                                        .getString("id"), jso_list
+//                                        .getString("goods_thumb"), jso_list
+//                                        .getString("shop_price"), jso_list
+//                                        .getString("name"), jso_list
+//                                        .getString("sell_number")));
+//                            }
+//                            recommendAdapter.notifyDataSetChanged();
+//                        } else {
+//                            lin_remai.setVisibility(View.GONE);
+//                        }
+
                         te_pjnumber.setText("共" + data.getString("comment_count") + "个评价");
                         goods_num = data.getString("comment_count");
                         te_getmore.setText("查看更多评论(" + goods_num + ")");
@@ -877,7 +897,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                                 jso1.getString("msg").toString(),
                                 Toast.LENGTH_SHORT).show();
                     }
-                    recommendAdapter.notifyDataSetChanged();
+//                    recommendAdapter.notifyDataSetChanged();
 //                    new Handler().postDelayed(new Runnable() {
 //
 //                        @Override
@@ -1538,20 +1558,4 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
             }
         });
     }
-
-    private void showDialog() {
-        dialog = new CustomDialog.Builder(GoodDetailsAty.this)
-                .setMessage("您确定要移除该商品吗？~")
-                .setPositiveButton(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(GoodDetailsAty.this, "确认", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                })
-                .setNegativeBtnShow(false)
-                .create();
-        dialog.show();
-    }
-
 }

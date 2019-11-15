@@ -57,7 +57,7 @@ import java.util.List;
 
 public class CreateOrder extends BaseActivity {
 
-
+    private CreateOrder activity;
     @ViewInject(R.id.ui_order_create_address)
     TextView orderAddress;
 
@@ -165,6 +165,7 @@ public class CreateOrder extends BaseActivity {
         setTitleContentView(R.layout.activity_create_order);
         StatusBarUtils.with(this).setBarColor(R.color.white_fff);
 
+        activity = this;
         x.view().inject(this);
         handler = new MyHandler(CreateOrder.this);
         landing = new Landing(CreateOrder.this, R.style.CustomDialog);
@@ -194,36 +195,23 @@ public class CreateOrder extends BaseActivity {
     public void createOrderClick(View view) {
         switch (view.getId()) {
             case R.id.ui_order_create_address_view://配送地址选择
-                UiHelper.toAddressActivity(CreateOrder.this, address1);
+                UiHelper.toAddressActivity(activity, address1);
 
                 break;
             case R.id.ui_order_create_send_time_view://配送时间选择
-                UiHelper.toSendTimeSelect(CreateOrder.this);
+                UiHelper.toSendTimeSelect(activity);
                 break;
             case R.id.ui_order_create_coupon_view://优惠券选择
-                Intent ix = new Intent();
-                ix.setClass(CreateOrder.this, youhuiquan.class);
-                Bundle bundlex = new Bundle();
-                bundlex.putStringArrayList("yhq", list_yhqstr);
-                ix.putExtras(bundlex);
-                startActivity(ix);
-                overridePendingTransition(R.anim.push_left_in,
-                        R.anim.push_left_out);
+                // 传递list_yhqstr
+                UiHelper.toCouponActivity(activity);
                 break;
             case R.id.ui_order_create_message_view://贺卡留言
-                Intent ix_hk = new Intent();
-                ix_hk.setClass(CreateOrder.this, heka.class);
-                ix_hk.putExtra("hk", te_hkxx.getText().toString());
-                startActivity(ix_hk);
-                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+                UiHelper.toMessageActivity(activity);
+
                 break;
             case R.id.ui_order_create_remark_view://备注
-                Intent ix_bz = new Intent();
-                ix_bz.setClass(CreateOrder.this, beizu.class);
-                ix_bz.putExtra("bz", te_bzxx.getText().toString());
-                startActivity(ix_bz);
-                overridePendingTransition(R.anim.push_left_in,
-                        R.anim.push_left_out);
+                UiHelper.toRamarkActivity(activity);
+
                 break;
             case R.id.ui_order_create_service_number_view://选择客服编号
                 Intent ix_kf = new Intent();
@@ -770,6 +758,21 @@ public class CreateOrder extends BaseActivity {
                 } else {
                     orderAddress.setText("");
                 }
+            } else if (requestCode == UiHelper.chooseSenfTime) {
+                address1 = (UserAddress) data.getSerializableExtra("address");
+
+            } else if (requestCode == UiHelper.leaveMessage) {
+                address1 = (UserAddress) data.getSerializableExtra("address");
+
+            } else if (requestCode == UiHelper.coupon) {
+                address1 = (UserAddress) data.getSerializableExtra("address");
+
+            } else if (requestCode == UiHelper.remark) {
+                address1 = (UserAddress) data.getSerializableExtra("address");
+
+            } else if (requestCode == UiHelper.serviceNumber) {
+                address1 = (UserAddress) data.getSerializableExtra("address");
+
             }
 
         }

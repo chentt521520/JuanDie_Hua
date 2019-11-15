@@ -61,6 +61,8 @@ public class ShopCartFavor {
 //    private String promote_end_date;
 //    private Object promote_end_date2;
 //    private String short_style_name;
+//"https://juandie.oss-cn-shanghai.aliyuncs.com/images/201907/thumb_img/1564472149_63258.jpg",
+private String goods_thumb;
 
     public String getId() {
         return id;
@@ -100,5 +102,13 @@ public class ShopCartFavor {
 
     public void setThumb(String thumb) {
         this.thumb = thumb;
+    }
+
+    public String getGoods_thumb() {
+        return goods_thumb;
+    }
+
+    public void setGoods_thumb(String goods_thumb) {
+        this.goods_thumb = goods_thumb;
     }
 }
