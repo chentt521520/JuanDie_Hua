@@ -12,7 +12,6 @@ public class Constant {
     public static final String PHONE = "4006089178";
 
 
-
     /**
      * 本地文件存储名称与路径
      */
@@ -24,7 +23,6 @@ public class Constant {
     public static final String ALBUM = "album";
     /*安装包目录*/
     public static final String SETUP = "setup";
-
 
 
     /**
@@ -40,6 +38,7 @@ public class Constant {
     public static final String kfpho = "kfpho";
     public static final String sye_dl = "sye_dl";
     /*已绑定*/
+    /*是否绑定微信*/
     public static final String iswxbd = "iswxbd";
     public static final String typeqd = "typeqd";
     /*屏蔽中间的手机号*/
@@ -53,6 +52,7 @@ public class Constant {
     public static final String bbh = "bbh";
     public static final String openid = "openid";
     public static final String zfddh = "zfddh";
+    /*是否为分享*/
     public static final String isfenx = "isfenx";
 
 

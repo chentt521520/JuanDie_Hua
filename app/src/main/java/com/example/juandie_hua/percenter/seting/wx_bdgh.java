@@ -32,6 +32,7 @@ import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.ui.MainActivity;
+import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
@@ -465,33 +466,26 @@ public class wx_bdgh extends Activity {
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.cook, object.getString("PHPSESSID"), "S");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.iswxbd, "1", "S");//已绑定
 
-                        MainActivity.handler.sendEmptyMessage(0x004);
+                        //刷新主界面
+                        Home.myHandler.sendEmptyMessage(0x003);
                         Me.handler.sendEmptyMessage(0x003);
-                        startActivity(new Intent(wx_bdgh.this,
-                                MainActivity.class));
-                        overridePendingTransition(R.anim.push_right_out,
-                                R.anim.push_right_in);
+
+                        overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
                         finish();
                     } else {
-                        Toast.makeText(wx_bdgh.this, object.getString("msg"),
-                                Toast.LENGTH_SHORT).show();
+                        Toast.makeText(wx_bdgh.this, object.getString("msg"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFail(String result) {
-                // TODO Auto-generated method stub
-
             }
 
             @Override
             public void onCancel(CancelledException cex) {
-                // TODO Auto-generated method stub
-
             }
         });
     }

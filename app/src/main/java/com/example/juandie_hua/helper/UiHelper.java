@@ -9,16 +9,14 @@ import com.example.juandie_hua.mycar.orderpay.SendDateSelect;
 import com.example.juandie_hua.mycar.orderpay.beizu;
 import com.example.juandie_hua.mycar.orderpay.heka;
 import com.example.juandie_hua.mycar.orderpay.youhuiquan;
-import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.good.GoodListAty;
 import com.example.juandie_hua.ui.good.GoodDetailsAty;
 import com.example.juandie_hua.model.UserAddress;
 import com.example.juandie_hua.mainactivity.other_web;
-import com.example.juandie_hua.ui.login.Loginphowx;
+import com.example.juandie_hua.ui.login.LoginAty;
 import com.example.juandie_hua.ui.me.MySC;
 import com.example.juandie_hua.ui.order.AddressManager;
-import com.example.juandie_hua.ui.order.CreateOrder;
 
 public class UiHelper {
 
@@ -49,7 +47,7 @@ public class UiHelper {
     }
 
     public static void toLoginActivity(Activity activity) {
-        toActivity(activity, Loginphowx.class);
+        toActivity(activity, LoginAty.class);
     }
 
     /**

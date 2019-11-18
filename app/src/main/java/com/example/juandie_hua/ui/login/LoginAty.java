@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +32,7 @@ import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.mainactivity.Fengmian;
+import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.tab.ShopCart;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
@@ -43,7 +45,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-public class Loginphowx extends BaseActivity implements PlatformActionListener {
+public class LoginAty extends BaseActivity implements PlatformActionListener {
     @ViewInject(R.id.loginph_imreturn)
     ImageView im_turn;
     @ViewInject(R.id.loginph_teph)
@@ -71,7 +73,7 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
 
         x.view().inject(this);
         myHandler = new MyHandler(this);
-        api = WXAPIFactory.createWXAPI(Loginphowx.this, "wx0a9fcf0dc4ee88b0");
+        api = WXAPIFactory.createWXAPI(LoginAty.this, "wx0a9fcf0dc4ee88b0");
         setviewlisten();
 
     }
@@ -92,12 +94,12 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
             @Override
             public void onClick(View v) {
                 if (!api.isWXAppInstalled()) {
-                    Toast.makeText(Loginphowx.this, "您还未安装微信客户端",
+                    Toast.makeText(LoginAty.this, "您还未安装微信客户端",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
                 // 避免微信登录与分享冲突
-                SharedPreferenceUtils.setPreference(Loginphowx.this, Constant.isfenx, "false", "S");
+                SharedPreferenceUtils.setPreference(LoginAty.this, Constant.isfenx, "false", "S");
 
                 String state = MD5.md5("wechat_login" + Fengmian.openid);
                 final SendAuth.Req req = new SendAuth.Req();
@@ -111,7 +113,7 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent();
-                i.setClass(Loginphowx.this, Loginpho.class);
+                i.setClass(LoginAty.this, Loginpho.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.push_left_in,
                         R.anim.push_left_out);
@@ -138,21 +140,20 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
     }
 
     public static class MyHandler extends Handler {
-        WeakReference<Loginphowx> referenceObj;
+        WeakReference<LoginAty> referenceObj;
 
-        public MyHandler(Loginphowx loginphowx) {
-            referenceObj = new WeakReference<Loginphowx>(loginphowx);
+        public MyHandler(LoginAty loginphowx) {
+            referenceObj = new WeakReference<LoginAty>(loginphowx);
         }
 
         @Override
         public void handleMessage(Message msg) {
-            Loginphowx activity = referenceObj.get();
+            LoginAty activity = referenceObj.get();
             switch (msg.what) {
                 case 0x001:
                     if (activity != null) {
                         activity.finish();
-                        activity.overridePendingTransition(R.anim.push_right_out,
-                                R.anim.push_right_in);
+                        activity.overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
                     }
                     break;
 
@@ -168,8 +169,7 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
             TimerTextView.isc = false;
             finish();
-            overridePendingTransition(R.anim.push_right_out,
-                    R.anim.push_right_in);
+            overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
             return false;
         }
         return false;
@@ -182,25 +182,24 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
 
             switch (msg.what) {
                 case 1:
-                    Toast.makeText(Loginphowx.this, "授权登陆成功", Toast.LENGTH_SHORT)
+                    Toast.makeText(LoginAty.this, "授权登陆成功", Toast.LENGTH_SHORT)
                             .show();
 
                     Platform platform = (Platform) msg.obj;
 
                     String userId = platform.getDb().getUserId();// 获取用户账号
 
-                    System.out
-                            .println(platform.getDb().getUserId() + "     xxxxxx");
+                    System.out.println(platform.getDb().getUserId() + "     xxxxxx");
 
                     httpPost_longinsan(userId);
                     // 。。。
                     break;
                 case 2:
-                    Toast.makeText(Loginphowx.this, "授权登陆失败", Toast.LENGTH_SHORT)
+                    Toast.makeText(LoginAty.this, "授权登陆失败", Toast.LENGTH_SHORT)
                             .show();
                     break;
                 case 3:
-                    Toast.makeText(Loginphowx.this, "授权登陆取消", Toast.LENGTH_SHORT)
+                    Toast.makeText(LoginAty.this, "授权登陆取消", Toast.LENGTH_SHORT)
                             .show();
                     break;
             }
@@ -297,6 +296,12 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
         mHandler.sendMessage(message);
     }
 
+
+    /**
+     * QQ，微博登录
+     *
+     * @param userid
+     */
     public void httpPost_longinsan(String userid) {
         String url = "https://app.juandie.com/api_mobile/user.php";
         HashMap<String, String> maps = new HashMap<>();
@@ -313,47 +318,27 @@ public class Loginphowx extends BaseActivity implements PlatformActionListener {
                     object = new JSONObject(result);
                     int status = object.getInt("status");
                     if (status == 1) {
-                        SharedPreferenceUtils.setPreference(Loginphowx.this, Constant.cook, object.getString("PHPSESSID"), "S");
-                        SharedPreferenceUtils.setPreference(Loginphowx.this, Constant.uid, object.getString("uid"), "S");
+                        toast("登录成功");
+                        SharedPreferenceUtils.setPreference(LoginAty.this, Constant.cook, object.getString("PHPSESSID"), "S");
+                        SharedPreferenceUtils.setPreference(LoginAty.this, Constant.uid, object.getString("uid"), "S");
                         Fengmian.uid = object.getString("uid");
                         JSONObject jso = object.getJSONObject("data");
                         jso.getString("is_binding_account");
                         if (jso.getString("is_binding_account").equals("true")) {
 
-//							if (preferences.getString("sye_dl", "0")
-//									.equals("1")) {
-//								editor = preferences.edit();
-//								editor.putString("sye_dl", "0");
-//								editor.commit();
-//								startActivity(new Intent(Loginphowx.this,
-//										haha.class));
-//								Home.myHandler.sendEmptyMessage(0x004);
-//							} else {
-//								Me.handler.sendEmptyMessage(0x003);
-//
-//								overridePendingTransition(
-//										R.anim.push_right_out,
-//										R.anim.push_right_in);
-//								finish();
-//							}
-                            Home.myHandler.sendEmptyMessage(0x004);
+                            Home.myHandler.sendEmptyMessage(0x003);
                             ShopCart.myHandler.sendEmptyMessage(0x001);
                             Me.handler.sendEmptyMessage(0x003);
-                            Loginphowx.myHandler.sendEmptyMessage(0x001);
-                            overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
-                            finish();
+
                         } else {
                             Intent i = new Intent();
-                            i.setClass(Loginphowx.this, Loginpho_bd.class);
+                            i.setClass(LoginAty.this, Loginpho_bd.class);
                             i.putExtra("type", "dsf");
                             startActivity(i);
-                            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-                            finish();
                         }
+                        LoginAty.myHandler.sendEmptyMessage(0x001);
                     } else {
-                        Toast.makeText(Loginphowx.this,
-                                object.getString("msg"), Toast.LENGTH_SHORT)
-                                .show();
+                        toast(object.getString("msg"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

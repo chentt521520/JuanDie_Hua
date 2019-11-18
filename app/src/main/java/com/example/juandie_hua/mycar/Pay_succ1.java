@@ -30,7 +30,7 @@ import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.other_web1;
-import com.example.juandie_hua.ui.login.Loginphowx;
+import com.example.juandie_hua.ui.login.LoginAty;
 import com.example.juandie_hua.utils.StatusBarUtils;
 
 public class Pay_succ1 extends Activity {
@@ -271,7 +271,7 @@ public class Pay_succ1 extends Activity {
 				break;
 			case R.id.payres_tedd:
 				if (preferences.getString("cook", "0").equals("0")) {
-					startActivity(new Intent(Pay_succ1.this, Loginphowx.class));
+					startActivity(new Intent(Pay_succ1.this, LoginAty.class));
 					overridePendingTransition(R.anim.push_left_in,
 							R.anim.push_left_out);
 				} else {

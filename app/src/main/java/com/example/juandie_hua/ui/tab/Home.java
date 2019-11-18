@@ -52,6 +52,7 @@ import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
+import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.app.BaseFragment;
 import com.example.juandie_hua.app.HttpUrl;
@@ -82,7 +83,6 @@ import com.example.juandie_hua.mainactivity.no_internet.te_oncl;
 import com.example.juandie_hua.ui.good.GoodListAty;
 import com.example.juandie_hua.mainactivity.goods.MyGridView;
 import com.example.juandie_hua.ui.me.MyCouponActivity;
-import com.example.juandie_hua.percenter.seting.seting;
 import com.meiqia.core.MQManager;
 import com.meiqia.core.bean.MQMessage;
 import com.meiqia.core.callback.OnGetMessageListCallback;
@@ -189,6 +189,7 @@ public class Home extends BaseFragment implements te_oncl {
 
     private GridMenuAdapter navAdapter;
     private CustomDialog dialog;
+    private boolean isShow;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -239,8 +240,8 @@ public class Home extends BaseFragment implements te_oncl {
         ViewUtils.setviewhw_lin(refragment, LayoutParams.MATCH_PARENT,
                 (int) (w * 449 / 750.0), 0, 0, 0, 0);
 
-        get_red_package.setVisibility(isLogin() ? View.GONE : View.VISIBLE);
         bd = new BadgeView(getActivity());
+        isShow = isLogin();
     }
 
 
@@ -427,11 +428,7 @@ public class Home extends BaseFragment implements te_oncl {
         redPackage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isLogin()) {
-                    get_hb(hb_lq[1]);
-                } else {
-                    UiHelper.toLoginActivity(getActivity());
-                }
+                get_hb(hb_lq[1]);
             }
         });
 
@@ -491,6 +488,7 @@ public class Home extends BaseFragment implements te_oncl {
         get_red_package_close.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                isShow = false;
                 get_red_package.setVisibility(View.GONE);
             }
         });
@@ -525,6 +523,12 @@ public class Home extends BaseFragment implements te_oncl {
     int xx = 0, xx1 = 0;
 
     private void getIndexData() {
+        if (isLogin()) {
+            get_red_package.setVisibility(View.GONE);
+        } else {
+            get_red_package.setVisibility(isShow ? View.VISIBLE : View.GONE);
+        }
+
         if (t_) {
             landing.show();
         }
@@ -814,7 +818,6 @@ public class Home extends BaseFragment implements te_oncl {
 
                         if (jsb.contains("登录")) {
                             Toast.makeText(getActivity(), jsb, Toast.LENGTH_SHORT).show();
-                            SharedPreferenceUtils.setPreference(getActivity(), Constant.sye_dl, "1", "S");
                             // 1表示首页领取红包登录后自动领取
                             UiHelper.toLoginActivity(getActivity());
 
@@ -873,7 +876,12 @@ public class Home extends BaseFragment implements te_oncl {
                     public void onClick(View v) {
                         dialog.dismiss();
                         if (text.contains("绑定")) {
-                            UiHelper.toActivity(getActivity(), seting.class);
+                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
+
+                            Intent i = new Intent();
+                            i.setClass(getActivity(), wx_bdgh.class);
+                            i.putExtra("type", iswxbd);
+                            UiHelper.toActivity(getActivity(), i);
                         }
                     }
                 })
@@ -973,14 +981,8 @@ public class Home extends BaseFragment implements te_oncl {
                     activity.scr_v.scrollTo(0, 0);
                     activity.im_top.setVisibility(View.GONE);
                     break;
-                case 0x003://退出登录
-                    activity.getIndexData();//login_out
-                    activity.get_red_package.setVisibility(View.VISIBLE);
-                    break;
-                case 0x004://登录成功
-//                    activity.get_hb(activity.hb_lq[1]);
+                case 0x003://刷新界面
                     activity.getIndexData();
-                    activity.get_red_package.setVisibility(View.GONE);
                     break;
                 default:
                     break;

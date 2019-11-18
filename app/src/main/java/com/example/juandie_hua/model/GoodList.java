@@ -19,7 +19,7 @@ public class GoodList {
     private String shop_price;
     private String virtual_sales;
     private String goods_sale_number;
-    private Object market_price;
+    private String market_price;
 
     public String getGoods_id() {
         return goods_id;
@@ -69,11 +69,11 @@ public class GoodList {
         this.goods_sale_number = goods_sale_number;
     }
 
-    public Object getMarket_price() {
+    public String getMarket_price() {
         return market_price;
     }
 
-    public void setMarket_price(Object market_price) {
+    public void setMarket_price(String market_price) {
         this.market_price = market_price;
     }
 }

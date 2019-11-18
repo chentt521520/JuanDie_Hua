@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ea9fa4"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/ui_login_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="@dimen/space_size_12"
+            android:src="@drawable/rebac" />
+
+        <TextView
+            android:id="@+id/ui_login_close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="#666666"
+            android:textSize="@dimen/font_size_16" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ui_login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/space_size_15"
+        android:layout_marginBottom="@dimen/space_size_15"
+        android:text="登录/注册"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/space_size_12">
+
+        <TextView
+            android:id="@+id/ui_phone_country"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="+86"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ui_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/space_size_15"
+            android:layout_toEndOf="@+id/ui_phone_country"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="16sp" />
+
+        <View
+            style="@style/ui_line"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/space_size_12">
+
+        <EditText
+            android:id="@+id/ui_verify_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="16sp" />
+
+        <com.example.juandie_hua.percenter.TimerTextView
+            android:id="@+id/ui_get_verify_code"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:onClick="loginClick"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/biankuang_ph1"
+            android:gravity="center"
+            android:maxLength="10"
+            android:text="获取验证码"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <View
+            style="@style/ui_line"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ui_login_in"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_size_40"
+        android:layout_margin="@dimen/space_size_12"
+        android:background="@drawable/bk_squre_white"
+        android:gravity="center"
+        android:onClick="loginClick"
+        android:text="完成"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+</LinearLayout>

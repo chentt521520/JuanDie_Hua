@@ -53,6 +53,7 @@ import com.example.juandie_hua.mainactivity.goods.pj_more;
 import com.example.juandie_hua.model.Coupon;
 import com.example.juandie_hua.model.GoodSpecs;
 import com.example.juandie_hua.model.ShopCartFavor;
+import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.ShopCatActivity;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
@@ -285,6 +286,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     private CustomDialog dialog;
     private List<ShopCartFavor> favorList;
     private ShopCartFavorAdapter favorAdapter;
+    private CusPopWindow popCoupon;
 
 
     @Override
@@ -1236,14 +1238,21 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
             public void onResponse(String result) {
                 try {
                     JSONObject response = new JSONObject(result);
+                    popCoupon.dismiss();
                     if (response.getString("status").equals("1")) {
                         toast(response.getString("msg") + "您可以在 个人中心—我的优惠券 查看领取情况");
                         collectGood(goods_id);
                     } else {
                         String jsb = response.getString("msg");
-                        toast(jsb);
                         if (jsb.contains("登录")) {
                             UiHelper.toLoginActivity(GoodDetailsAty.this);
+                        } else if (jsb.contains("绑定")) {
+                            String iswxbd = (String) SharedPreferenceUtils.getPreference(GoodDetailsAty.this, Constant.iswxbd, "S");
+
+                            Intent i = new Intent();
+                            i.setClass(GoodDetailsAty.this, wx_bdgh.class);
+                            i.putExtra("type", iswxbd);
+                            UiHelper.toActivity(GoodDetailsAty.this, i);
                         }
                     }
                 } catch (JSONException e) {
@@ -1530,7 +1539,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     private void showCoupon() {
         View view = LayoutInflater.from(GoodDetailsAty.this).inflate(R.layout.pop_coupon, null);
 
-        final CusPopWindow popCoupon = new CusPopWindow.PopupWindowBuilder(GoodDetailsAty.this)
+        popCoupon = new CusPopWindow.PopupWindowBuilder(GoodDetailsAty.this)
                 .setView(view)
                 .size(DensityUtil.getScreenWidth(), -2)
                 .enableBackgroundDark(true)
@@ -1539,6 +1548,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
         popCoupon.showAtLocation(GoodDetailsAty.this.findViewById(R.id.good_detail_view), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 
         GridView gridView = view.findViewById(R.id.pop_coupon_grid);
+        gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
         TextView btnGetCoupon = view.findViewById(R.id.pop_get_coupon_btn);
         CouponReceiveAdapter adapter = new CouponReceiveAdapter(GoodDetailsAty.this, couponList);
         gridView.setAdapter(adapter);
@@ -1548,13 +1558,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
             @Override
             public void onClick(View v) {
                 receiveCoupon(coupon.getField());
-            }
-        });
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
             }
         });
     }

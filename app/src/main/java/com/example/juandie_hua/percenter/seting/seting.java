@@ -241,24 +241,13 @@ public class seting extends BaseActivity implements re_jk {
                     jso1 = new JSONObject(result);
                     if (jso1.getString("status").equals("1")) {
 
-//                        String orderstr = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.perorderid, "S");// 存储支付成功订单号信息
-//                        String ordertime = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.perordertime, "S");// 存储支付成功订单号信息
-//                        int first = (int) SharedPreferenceUtils.getPreference(seting.this, Constant.first, "I");//足迹
-//                        String bbh = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.bbh, "S");//足迹
-//                        String hbcs = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.hbcs, "S");//足迹
-//                        String openid = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.openid, "S");//足迹
-
                         SharedPreferenceUtils.setPreference(seting.this, Constant.uid, "", "S");
                         SharedPreferenceUtils.setPreference(seting.this, Constant.openid, "", "S");
                         SharedPreferenceUtils.setPreference(seting.this, Constant.cook, "", "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.zhuji, "", "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.first, "", "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.perorderid, orderstr, "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.perordertime, ordertime, "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.hbcs, hbcs, "S");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.first, first, "I");
-//                        SharedPreferenceUtils.setPreference(seting.this, Constant.bbh, bbh, "S");
-
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.iswxbd, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.typeqd, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.pho, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.pho1, "", "S");
                         toast("退出成功");
 
                         Fengmian.uid = "";

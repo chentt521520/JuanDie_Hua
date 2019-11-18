@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_size_45"
         android:layout_margin="@dimen/space_size_20"
-        android:background="@drawable/biankuang_ph"
+        android:background="@drawable/bk_squre_white"
         android:gravity="center"
         android:text="手机号登录"
         android:textColor="#ffffff"

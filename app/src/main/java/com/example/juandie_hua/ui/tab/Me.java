@@ -33,6 +33,7 @@ import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.model.ResUser;
+import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.me.OfficialAccountActivity;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.other_web1;
@@ -299,7 +300,6 @@ public class Me extends BaseFragment implements View.OnClickListener {
                         }
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 new Handler().postDelayed(new Runnable() {
@@ -475,9 +475,23 @@ public class Me extends BaseFragment implements View.OnClickListener {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
-                        if (text.contains("微信")) {
-                            UiHelper.toActivity(getActivity(), seting.class);
+                        if (text.contains("绑定")) {
+                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
+
+                            Intent i = new Intent();
+                            i.setClass(getActivity(), wx_bdgh.class);
+                            i.putExtra("type", iswxbd);
+                            UiHelper.toActivity(getActivity(), i);
                         }
+//                        if (text.contains("微信")) {
+//                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
+//
+//                            Intent i = new Intent();
+//                            i.setClass(getActivity(), wx_bdgh.class);
+//                            i.putExtra("type", iswxbd);
+//                            UiHelper.toActivity(getActivity(), i);
+//                            UiHelper.toActivity(getActivity(), seting.class);
+//                        }
                     }
                 })
                 .setNegativeBtnShow(false)

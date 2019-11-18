@@ -799,6 +799,7 @@ public class orderin extends Activity {
 
                         JSONArray jsa_yhq = jso.getJSONArray("bonus_list");
                         list_yhqstr.removeAll(list_yhqstr);
+
                         if (!yhq_je.equals("0")) {
                             lin_useyhq.setVisibility(View.VISIBLE);
                             te_yhq.setTextColor(Color.parseColor("#666666"));

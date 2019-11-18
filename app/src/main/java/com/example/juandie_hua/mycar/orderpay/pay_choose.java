@@ -10,7 +10,6 @@ import org.xutils.common.Callback.CancelledException;
 import org.xutils.view.annotation.ViewInject;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,6 +31,7 @@ import android.widget.Toast;
 import com.alipay.sdk.app.PayTask;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.alipay.sdk.pay.PayResult;
+import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
@@ -44,7 +44,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import com.umeng.analytics.MobclickAgent;
 
-public class pay_choose extends Activity {
+public class pay_choose extends BaseActivity {
 	@ViewInject(R.id.paychoose_retop)
 	RelativeLayout re_top;
 	@ViewInject(R.id.paychoose_imreturn)

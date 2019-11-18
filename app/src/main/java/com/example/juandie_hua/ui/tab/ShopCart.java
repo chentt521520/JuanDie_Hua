@@ -67,7 +67,7 @@ import com.example.juandie_hua.model.ShopCartGood;
 import com.example.juandie_hua.model.ShopCartRecommond;
 import com.example.juandie_hua.mycar.orderpay.orderin;
 import com.example.juandie_hua.ui.adapter.GoodSpecsAdapter;
-import com.example.juandie_hua.ui.login.Loginphowx;
+import com.example.juandie_hua.ui.login.LoginAty;
 import com.example.juandie_hua.utils.StrUtils;
 import com.example.juandie_hua.view.CusPopWindow;
 import com.example.juandie_hua.view.CustomDialog;
@@ -192,7 +192,7 @@ public class ShopCart extends BaseFragment {
                 if (!isLogin()) {
                     loginDialog();
                 } else {
-                    UiHelper.toActivity(getActivity(), orderin.class);
+                    commitOrder();
                 }
             }
         });
@@ -201,7 +201,7 @@ public class ShopCart extends BaseFragment {
 
             @Override
             public void onRefresh() {
-                getShopCartList(0);
+                myHandler.sendEmptyMessage(0x001);
                 spr.setRefreshing(false);
                 toast("刷新成功");
             }
@@ -319,7 +319,7 @@ public class ShopCart extends BaseFragment {
     private void setviewhw() {
         if (intentFlag == UiHelper.fromGoodDetail) {
             im_return.setVisibility(View.VISIBLE);
-            getShopCartList(0);
+            myHandler.sendEmptyMessage(0x001);
         } else {
             im_return.setVisibility(View.GONE);
         }
@@ -379,20 +379,25 @@ public class ShopCart extends BaseFragment {
                     .setPositiveButton("直接购买", R.color.black_000000, new OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            UiHelper.toActivity(getActivity(), new Intent(getActivity(), orderin.class));
+                            commitOrder();
                             loginDialog.dismiss();
                         }
                     })
                     .setNegativeButton("登录", R.color.red, new OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            UiHelper.toActivity(getActivity(), new Intent(getActivity(), Loginphowx.class));
+                            UiHelper.toActivity(getActivity(), new Intent(getActivity(), LoginAty.class));
                             loginDialog.dismiss();
                         }
                     })
                     .create();
         }
         loginDialog.show();
+    }
+
+    private void commitOrder() {
+        UiHelper.toActivity(getActivity(), new Intent(getActivity(), orderin.class));
+        myHandler.sendEmptyMessage(0x001);
     }
 
 
@@ -516,7 +521,7 @@ public class ShopCart extends BaseFragment {
                     JSONObject response = new JSONObject(result);
                     if (response.getString("status").equals("1")) {
                         Toast.makeText(getActivity(), "移除成功", Toast.LENGTH_SHORT).show();
-                        getShopCartList(0);
+                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         String jsb = response.getString("msg");
                         Toast.makeText(getActivity(), jsb, Toast.LENGTH_SHORT).show();
@@ -684,7 +689,7 @@ public class ShopCart extends BaseFragment {
                     object = new JSONObject(result);
                     int status = object.getInt("status");
                     if (status == 1) {
-                        getShopCartList(0);
+                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         Toast.makeText(getActivity(), "加入购物车失败",
                                 Toast.LENGTH_SHORT).show();
@@ -931,7 +936,7 @@ public class ShopCart extends BaseFragment {
                     object = new JSONObject(result);
                     int status = object.getInt("status");
                     if (status == 1) {
-                        getShopCartList(0);
+                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         toast("修改商品规格失败");
                     }
