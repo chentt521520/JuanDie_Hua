@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
@@ -219,9 +220,7 @@ public class Loginpho extends BaseActivity {
                         SharedPreferenceUtils.setPreference(Loginpho.this, Constant.is_login, true, "B");
                         Fengmian.uid = uid;
 
-                        Home.myHandler.sendEmptyMessage(0x003);
-                        ShopCart.myHandler.sendEmptyMessage(0x001);
-                        Me.handler.sendEmptyMessage(0x003);
+                        UiHelper.refresh();
                         LoginAty.myHandler.sendEmptyMessage(0x001);
 
                         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);

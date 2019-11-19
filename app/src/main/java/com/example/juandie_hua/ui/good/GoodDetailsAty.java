@@ -51,6 +51,7 @@ import com.example.juandie_hua.mainactivity.goods.pj_adaData;
 import com.example.juandie_hua.mainactivity.goods.pj_adapter;
 import com.example.juandie_hua.mainactivity.goods.pj_more;
 import com.example.juandie_hua.model.Coupon;
+import com.example.juandie_hua.model.FestivalPrice;
 import com.example.juandie_hua.model.GoodSpecs;
 import com.example.juandie_hua.model.ShopCartFavor;
 import com.example.juandie_hua.percenter.seting.wx_bdgh;
@@ -73,7 +74,6 @@ import com.example.juandie_hua.utils.StrUtils;
 import com.example.juandie_hua.utils.TextViewUtils;
 import com.example.juandie_hua.utils.ViewUtils;
 import com.example.juandie_hua.view.CusPopWindow;
-import com.example.juandie_hua.view.CustomDialog;
 import com.jauker.widget.BadgeView;
 import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
@@ -172,8 +172,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     LinearLayout lin_remai;
     @ViewInject(R.id.sp_gridv)
     GridView grv_list;
-//    gdlist_adapter recommendAdapter;
-//    List<gdlist_adaData> list;
 
     /**
      * 商品详情
@@ -283,7 +281,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
     private ArrayList<GoodSpecs> specsList;
     private String is_festival = "";
     private CusPopWindow popSpecs;
-    private CustomDialog dialog;
     private List<ShopCartFavor> favorList;
     private ShopCartFavorAdapter favorAdapter;
     private CusPopWindow popCoupon;
@@ -304,12 +301,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
 
         addFootPrint();
         landing = new Landing(GoodDetailsAty.this, R.style.CustomDialog);
-
-        if (new internet_if().isNetworkConnected(GoodDetailsAty.this)) {
-            xutils_getsp(goods_id);//页面初始化
-            geShopCartCount();
-        } else
-            no_internet.show();
 
         setviewdata();
         setviewlisten();
@@ -712,6 +703,36 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                          * 节日价
                          */
                         JSONObject jsoc = data.getJSONObject("festival_price_info");
+//                        String festival_price_info = data.getString("festival_price_info");
+//                        if (TextUtils.equals("[]", festival_price_info)) {
+//                            //
+//                        } else {
+//                            FestivalPrice festivalPrice = JSON.parseObject(festival_price_info, FestivalPrice.class);
+//                            if (festivalPrice != null) {
+//                                if (festivalPrice.isFestival_open()) {
+//                                    is_festival = "0";
+//                                    single_price_view.setVisibility(View.GONE);
+//                                    double_price_view.setVisibility(View.VISIBLE);
+//
+//                                    normal_price_title.setText(festivalPrice.getFestival_price_now().getTitle());
+//                                    festival_price_title.setText(festivalPrice.getFestival_price_old().getTitle());
+//                                    normal_price.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getPrice()));
+//                                    festival_price.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_old().getPrice()));
+//                                    normal_orgprice.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getMarket_price()));
+//                                    festival_orgprice.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_old().getMarket_price()));
+//
+//                                    goodPrice = DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getPrice());
+//                                } else {
+//                                    is_festival = "";
+//                                    single_price_view.setVisibility(View.VISIBLE);
+//                                    double_price_view.setVisibility(View.GONE);
+//                                    goodPrice = DecimalUtil.priceAddDecimal(data.getString("shop_price"));
+////                                    goodPrice = "￥" + data.getString("shop_price");
+//                                }
+//                            }
+//                        }
+
+
                         if (jsoc.getString("festival_open").equals("true")) {
                             is_festival = "0";
 
@@ -723,17 +744,17 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
 
                             normal_price_title.setText(jso_psj.getString("title"));
                             festival_price_title.setText(jso_jrj.getString("title"));
-                            normal_price.setText("￥" + jso_psj.getString("price"));
-                            festival_price.setText("￥" + jso_jrj.getString("price"));
-                            normal_orgprice.setText("￥" + jso_psj.getString("market_price"));
-                            festival_orgprice.setText("￥" + jso_jrj.getString("market_price"));
+                            normal_price.setText(DecimalUtil.priceAddDecimal(jso_psj.getString("price")));
+                            festival_price.setText(DecimalUtil.priceAddDecimal(jso_jrj.getString("price")));
+                            normal_orgprice.setText(DecimalUtil.priceAddDecimal(jso_psj.getString("market_price")));
+                            festival_orgprice.setText(DecimalUtil.priceAddDecimal(jso_jrj.getString("market_price")));
 
-                            goodPrice = "￥" + jso_psj.getString("price");
+                            goodPrice = DecimalUtil.priceAddDecimal(jso_psj.getString("price"));
                         } else {
                             is_festival = "";
                             single_price_view.setVisibility(View.VISIBLE);
                             double_price_view.setVisibility(View.GONE);
-                            goodPrice = "￥" + data.getString("shop_price");
+                            goodPrice = DecimalUtil.priceAddDecimal(data.getString("shop_price"));
                         }
 
                         goods_desc = data.getString("goods_desc");
@@ -751,9 +772,9 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                         initialize();
                         te_name.setText(data.getString("goods_name"));
                         goodName = data.getString("goods_name");
-                        te_price.setText("￥" + data.getString("shop_price"));
+                        te_price.setText(DecimalUtil.priceAddDecimal(data.getString("shop_price")));
 
-                        te_pricesc.setText(data.getString("market_price") + ".00");
+                        te_pricesc.setText(DecimalUtil.priceAddDecimal(data.getString("market_price")));
                         te_pricexl.setText("已售 " + data.getString("goods_sale_number") + "件");
 
 
@@ -834,7 +855,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                         goods_num = data.getString("comment_count");
                         te_getmore.setText("查看更多评论(" + goods_num + ")");
                         JSONArray jso_pj = data.getJSONArray("comment_list");
-                        list_pj.removeAll(list_pj);
+                        list_pj.clear();
                         if (jso_pj.length() >= 1) {
                             for (int i = 0; i < jso_pj.length(); i++) {
                                 JSONObject dat_pj = jso_pj.getJSONObject(i);
@@ -1023,7 +1044,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
         }
 
         HashMap<String, String> maps = new HashMap<>();
-        maps.put("act", "add_to_cart");
+        maps.put("act", HttpUrl.add_shop_cart);
         maps.put("goods", ja.toString());
 
         Xutils_Get_Post.getInstance().post(url, maps, new Xutils_Get_Post.XCallBack() {
@@ -1488,7 +1509,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
             }
 
         } catch (JSONException e2) {
-            // TODO Auto-generated catch block
             e2.printStackTrace();
         }
 
@@ -1514,21 +1534,16 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                         toast("加入购物车失败");
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFail(String result) {
-                // TODO Auto-generated method stub
-
             }
 
             @Override
             public void onCancel(Callback.CancelledException cex) {
-                // TODO Auto-generated method stub
-
             }
         });
     }
@@ -1560,5 +1575,15 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                 receiveCoupon(coupon.getField());
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (new internet_if().isNetworkConnected(GoodDetailsAty.this)) {
+            xutils_getsp(goods_id);//页面初始化
+            geShopCartCount();
+        } else
+            no_internet.show();
     }
 }

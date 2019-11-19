@@ -31,6 +31,7 @@ import cn.sharesdk.tencent.qq.QQ;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.Constant;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.tab.ShopCart;
@@ -326,9 +327,7 @@ public class LoginAty extends BaseActivity implements PlatformActionListener {
                         jso.getString("is_binding_account");
                         if (jso.getString("is_binding_account").equals("true")) {
 
-                            Home.myHandler.sendEmptyMessage(0x003);
-                            ShopCart.myHandler.sendEmptyMessage(0x001);
-                            Me.handler.sendEmptyMessage(0x003);
+                            UiHelper.refresh();
 
                         } else {
                             Intent i = new Intent();
@@ -354,5 +353,4 @@ public class LoginAty extends BaseActivity implements PlatformActionListener {
             }
         });
     }
-
 }

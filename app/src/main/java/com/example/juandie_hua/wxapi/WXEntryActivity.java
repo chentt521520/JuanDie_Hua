@@ -21,6 +21,7 @@ import cn.sharesdk.wechat.utils.WechatHandlerActivity;
 
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.Constant;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.ui.tab.Me;
@@ -145,16 +146,7 @@ public class WXEntryActivity extends WechatHandlerActivity implements IWXAPIEven
                         Fengmian.uid = object.getString("uid");
                         JSONObject jso = object.getJSONObject("data");
 
-                        //刷新首页，隐藏领红包按钮
-                        if (Home.myHandler != null) {
-                            Home.myHandler.sendEmptyMessage(0x003);
-                        }
-                        if (ShopCart.myHandler != null) {
-                            ShopCart.myHandler.sendEmptyMessage(0x001);
-                        }
-                        if (Me.handler != null) {
-                            Me.handler.sendEmptyMessage(0x003);
-                        }
+                        UiHelper.refresh();
 
                         //未绑定手机号
                         if (!jso.getString("is_binding_account").equals("true")) {

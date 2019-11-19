@@ -82,7 +82,7 @@
     <View style="@style/ui_line" />
 
     <LinearLayout
-        android:id="@+id/nogoods_lintt"
+        android:id="@+id/nogoods_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone">

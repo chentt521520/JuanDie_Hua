@@ -110,7 +110,6 @@ public class seting extends BaseActivity implements re_jk {
                     @Override
                     public void run() {
                         Glide.get(getApplication()).clearDiskCache();
-
                     }
                 }).start();
                 new Handler().postDelayed(new Runnable() {
@@ -146,18 +145,10 @@ public class seting extends BaseActivity implements re_jk {
             @Override
             public void onClick(View v) {
                 String iswxbd = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.iswxbd, "S");
-                if (TextUtils.equals(iswxbd, "1")) {
-                    Intent i = new Intent();
-                    i.setClass(seting.this, wx_bdgh.class);
-                    i.putExtra("type", "1");
-                    UiHelper.toActivity(seting.this, i);
-                } else if (TextUtils.equals(iswxbd, "2")) {
-                    // 绑定
-                    Intent i = new Intent();
-                    i.setClass(seting.this, wx_bdgh.class);
-                    i.putExtra("type", "2");
-                    UiHelper.toActivity(seting.this, i);
-                }
+                Intent i = new Intent();
+                i.setClass(seting.this, wx_bdgh.class);
+                i.putExtra("type", iswxbd);
+                UiHelper.toActivity(seting.this, i);
             }
         });
 

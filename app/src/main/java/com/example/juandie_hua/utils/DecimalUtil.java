@@ -17,8 +17,8 @@ public class DecimalUtil {
 
     public static String priceAddDecimal(String number) {
         String value = number;
-        if (!number.contains("￥")) {
-            value = "￥" + value;
+        if (!number.contains("¥") || !number.contains("￥")) {
+            value = "¥" + value;
         }
         if (!number.contains(".")) {
             value = value + ".00";

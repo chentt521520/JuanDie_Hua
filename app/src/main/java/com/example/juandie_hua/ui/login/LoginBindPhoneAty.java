@@ -2,21 +2,17 @@ package com.example.juandie_hua.ui.login;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
@@ -37,12 +33,6 @@ import org.xutils.x;
 import java.util.HashMap;
 
 public class LoginBindPhoneAty extends BaseActivity {
-
-
-    @ViewInject(R.id.ui_login_back)
-    ImageView im_turn;
-    @ViewInject(R.id.ui_login_close)
-    TextView te_close;
 
     @ViewInject(R.id.ui_login_title)
     TextView te_titlog;
@@ -84,7 +74,6 @@ public class LoginBindPhoneAty extends BaseActivity {
             case R.id.ui_get_verify_code:
                 if (StrUtils.isMatchered(phone)) {
                     phoneNumber.setEnabled(false);
-
                     getVerifyCode(phone);
                 } else {
                     toast("请输入正确的手机号");
@@ -207,15 +196,7 @@ public class LoginBindPhoneAty extends BaseActivity {
     //绑定手机号结果
     private void loginResult() {
         //刷新首页
-        if (Home.myHandler != null) {
-            Home.myHandler.sendEmptyMessage(0x003);
-        }
-        if (ShopCart.myHandler != null) {
-            ShopCart.myHandler.sendEmptyMessage(0x001);
-        }
-        if (Me.handler != null) {
-            Me.handler.sendEmptyMessage(0x003);
-        }
+        UiHelper.refresh();
 
         //销毁当前页面
         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);

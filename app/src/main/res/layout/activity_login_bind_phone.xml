@@ -14,6 +14,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="@dimen/space_size_12"
+            android:onClick="loginClick"
             android:src="@drawable/rebac" />
 
         <TextView
@@ -21,9 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="center"
-            android:layout_marginEnd="12dp"
+            android:paddingStart="@dimen/space_size_12"
+            android:paddingEnd="@dimen/space_size_12"
             android:gravity="center"
+            android:onClick="loginClick"
             android:text="关闭"
             android:textColor="#666666"
             android:textSize="@dimen/font_size_16" />

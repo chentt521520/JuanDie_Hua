@@ -298,13 +298,11 @@ public class GoodListAty extends BaseActivity implements re_jk {
                 if (firstVisibleItem == 0) {
                     View firstVisibleItemView = listv_v.getChildAt(0);
                     if (firstVisibleItemView != null && firstVisibleItemView.getTop() == 0) {
-//                        Log.d("ListView", "##### 滚动到顶部 #####");
                     }
                 } else if ((firstVisibleItem + visibleItemCount) == totalItemCount) {
                     if (!tfalse) {
                         View lastVisibleItemView = listv_v.getChildAt(listv_v.getChildCount() - 1);
                         if (lastVisibleItemView != null && lastVisibleItemView.getBottom() <= listv_v.getHeight()) {
-//                            Log.d("ListView", "##### 滚动到底部 ######");
                             page++;
                             xutils_getlist(cid, keywords, filter_attr, order, by, page);
                         }

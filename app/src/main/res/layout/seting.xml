@@ -63,7 +63,7 @@
             android:background="#ffffff"
             android:orientation="horizontal"
             android:padding="@dimen/space_size_12"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/set_imwx"

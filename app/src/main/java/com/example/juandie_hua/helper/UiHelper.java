@@ -17,6 +17,9 @@ import com.example.juandie_hua.mainactivity.other_web;
 import com.example.juandie_hua.ui.login.LoginAty;
 import com.example.juandie_hua.ui.me.MySC;
 import com.example.juandie_hua.ui.order.AddressManager;
+import com.example.juandie_hua.ui.tab.Home;
+import com.example.juandie_hua.ui.tab.Me;
+import com.example.juandie_hua.ui.tab.ShopCart;
 
 public class UiHelper {
 
@@ -25,14 +28,18 @@ public class UiHelper {
 
     //特定跳转标记 通常用作指定跳转
     public static final int intentActivityAssign = 9999;
-    public static final int fromGoodDetail = 00001;
+    public static final int fromGoodDetail = 0x001;
 
-    public static final int chooseAddress = 00002;
-    public static final int chooseSenfTime = 00003;
-    public static final int leaveMessage = 00004;
-    public static final int remark = 00005;
-    public static final int coupon = 00006;
-    public static final int serviceNumber = 00007;
+    public static final int chooseAddress = 0x002;
+    public static final int chooseSenfTime = 0x0023;
+    public static final int leaveMessage = 0x004;
+    public static final int remark = 0x005;
+    public static final int coupon = 0x006;
+    public static final int serviceNumber = 0x007;
+
+    public static final int fromHome = 0x100;
+    public static final int fromShopCart = 0x101;
+    public static final int fromMe = 0x102;
 
     public static final String packShopCat = "com.example.juandie_hua.Ui.ShopCatActivity";
 
@@ -151,5 +158,18 @@ public class UiHelper {
     public static void finish(Activity activity) {
         activity.finish();
         activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+
+    public static void refresh() {
+        if (Home.myHandler != null) {
+            Home.myHandler.sendEmptyMessage(0x003);
+        }
+//        if (ShopCart.myHandler != null) {
+//            ShopCart.myHandler.sendEmptyMessage(0x001);
+//        }
+        if (Me.handler != null) {
+            Me.handler.sendEmptyMessage(0x003);
+        }
     }
 }

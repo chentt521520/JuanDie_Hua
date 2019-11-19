@@ -333,9 +333,9 @@ public class Loginpho_bd extends BaseActivity {
         if (Home.myHandler != null) {
             Home.myHandler.sendEmptyMessage(0x003);
         }
-        if (ShopCart.myHandler != null) {
-            ShopCart.myHandler.sendEmptyMessage(0x001);
-        }
+//        if (ShopCart.myHandler != null) {
+//            ShopCart.myHandler.sendEmptyMessage(0x001);
+//        }
         if (Me.handler != null) {
             Me.handler.sendEmptyMessage(0x003);
         }

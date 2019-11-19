@@ -488,7 +488,7 @@ public class Home extends BaseFragment implements te_oncl {
         get_red_package_close.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                isShow = false;
+                isShow = true;
                 get_red_package.setVisibility(View.GONE);
             }
         });
@@ -526,7 +526,7 @@ public class Home extends BaseFragment implements te_oncl {
         if (isLogin()) {
             get_red_package.setVisibility(View.GONE);
         } else {
-            get_red_package.setVisibility(isShow ? View.VISIBLE : View.GONE);
+            get_red_package.setVisibility(!isShow ? View.VISIBLE : View.GONE);
         }
 
         if (t_) {
@@ -1024,7 +1024,6 @@ public class Home extends BaseFragment implements te_oncl {
                     int status = object.getInt("status");
                     if (status == 1) {
                         toast("加入购物车成功");
-                        ShopCart.myHandler.sendEmptyMessage(0x001);
                     } else {
                         toast("加入购物车失败");
                     }

@@ -3,7 +3,6 @@ package com.example.juandie_hua.ui.tab;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +20,6 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.widget.LinearLayoutManager;
@@ -116,7 +114,7 @@ public class ShopCart extends BaseFragment {
     /**
      * 无数据显示
      */
-    @ViewInject(R.id.nogoods_lintt)
+    @ViewInject(R.id.nogoods_view)
     LinearLayout layout_nogoods;
     /**
      * 返回首页
@@ -142,7 +140,7 @@ public class ShopCart extends BaseFragment {
     private ArrayList<ShopCartFavor> favorList;
 
     double totalPrice = 0.00;
-    public static MyHandler myHandler;
+//    public static MyHandler myHandler;
 
     PopupWindow window;
 
@@ -162,7 +160,7 @@ public class ShopCart extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myHandler = new MyHandler(this);
+//        myHandler = new MyHandler(this);
 
         if (v == null) {
             v = inflater.inflate(R.layout.gwuche, container, false);
@@ -201,7 +199,8 @@ public class ShopCart extends BaseFragment {
 
             @Override
             public void onRefresh() {
-                myHandler.sendEmptyMessage(0x001);
+                getShopCartList(0);
+//                myHandler.sendEmptyMessage(0x001);
                 spr.setRefreshing(false);
                 toast("刷新成功");
             }
@@ -319,7 +318,7 @@ public class ShopCart extends BaseFragment {
     private void setviewhw() {
         if (intentFlag == UiHelper.fromGoodDetail) {
             im_return.setVisibility(View.VISIBLE);
-            myHandler.sendEmptyMessage(0x001);
+//            myHandler.sendEmptyMessage(0x001);
         } else {
             im_return.setVisibility(View.GONE);
         }
@@ -337,7 +336,7 @@ public class ShopCart extends BaseFragment {
         for (int i = 0; i < goodList.size(); i++) {
             int num = Integer.valueOf(goodList.get(i).getGoods_number());
             int dou = (int) Double.parseDouble(goodList.get(i).getGoods_price());
-            int price = Integer.valueOf(dou).intValue();
+            int price = Integer.valueOf(dou);
             totalPrice += num * price;
         }
         String pr = totalPrice + "";
@@ -397,37 +396,49 @@ public class ShopCart extends BaseFragment {
 
     private void commitOrder() {
         UiHelper.toActivity(getActivity(), new Intent(getActivity(), orderin.class));
-        myHandler.sendEmptyMessage(0x001);
+//        myHandler.sendEmptyMessage(0x001);
     }
 
 
-    public static class MyHandler extends Handler {
-        WeakReference<ShopCart> referenceObj;
+//    public static class MyHandler extends Handler {
+//        WeakReference<ShopCart> referenceObj;
+//
+//        public MyHandler(ShopCart activity) {
+//            referenceObj = new WeakReference<ShopCart>(activity);
+//        }
+//
+//        @Override
+//        public void handleMessage(Message msg) {
+//            ShopCart activity = referenceObj.get();
+//            switch (msg.what) {
+//                case 0x001:
+//                    activity.getShopCartList(0);
+//                    break;
+//                case 0x002:
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
 
-        public MyHandler(ShopCart activity) {
-            referenceObj = new WeakReference<ShopCart>(activity);
-        }
+    @Override
+    public void onResume() {
+        super.onResume();
+        getShopCartList(0);
+    }
 
-        @Override
-        public void handleMessage(Message msg) {
-            ShopCart activity = referenceObj.get();
-            switch (msg.what) {
-                case 0x001:
-                    activity.getShopCartList(0);
-                    break;
-                case 0x002:
-                    break;
-                default:
-                    break;
+    //判断界面是否可见
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {//界面可见时
+            if (v != null) {
+                getShopCartList(0);
             }
         }
     }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        getShopCartList(0);
-//    }
 
     /**
      * 获取购物车列表
@@ -450,22 +461,12 @@ public class ShopCart extends BaseFragment {
 
                         goodList = JSON.parseObject(jso.getString("cart_goods_list"), new TypeReference<ArrayList<ShopCartGood>>() {
                         });
-                        shopCartAdapter.refresh(goodList);
-
                         recommondList = JSON.parseObject(jso.getString("cart_recomend_goods_list"), new TypeReference<ArrayList<ShopCartRecommond>>() {
                         });
-                        shopCartRecommondAdapter.freshList(recommondList);
-
                         favorList = JSON.parseObject(jso.getString("cake_cart_null_recommend_goods_list"), new TypeReference<ArrayList<ShopCartFavor>>() {
                         });
-                        shopCartFavorAdapter.refresh(favorList);
 
                         showContent(StrUtils.listIsEmpty(goodList));
-                        if (StrUtils.listIsEmpty(recommondList)) {
-                            te_titui.setVisibility(View.GONE);
-                        } else {
-                            te_titui.setVisibility(View.VISIBLE);
-                        }
 //
 //                        if (type == 1) {
 //                            if (!StrUtils.listIsEmpty(goodList)) {
@@ -521,7 +522,8 @@ public class ShopCart extends BaseFragment {
                     JSONObject response = new JSONObject(result);
                     if (response.getString("status").equals("1")) {
                         Toast.makeText(getActivity(), "移除成功", Toast.LENGTH_SHORT).show();
-                        myHandler.sendEmptyMessage(0x001);
+                        getShopCartList(0);
+//                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         String jsb = response.getString("msg");
                         Toast.makeText(getActivity(), jsb, Toast.LENGTH_SHORT).show();
@@ -553,17 +555,24 @@ public class ShopCart extends BaseFragment {
         if (isEmpty) {
             //无数据
             layout_nogoods.setVisibility(View.VISIBLE);
-            listv_car.setVisibility(View.GONE);
             re_jiesuan.setVisibility(View.GONE);
-            spr.setVisibility(View.GONE);
+            shopCartFavorAdapter.refresh(favorList);
+
         } else {
             //有数据
             layout_nogoods.setVisibility(View.GONE);
-            listv_car.setVisibility(View.VISIBLE);
             re_jiesuan.setVisibility(View.VISIBLE);
-            spr.setVisibility(View.VISIBLE);
             jishuan();
         }
+
+        shopCartAdapter.refresh(goodList);
+        shopCartRecommondAdapter.freshList(recommondList);
+        if (StrUtils.listIsEmpty(recommondList)) {
+            te_titui.setVisibility(View.GONE);
+        } else {
+            te_titui.setVisibility(View.VISIBLE);
+        }
+
     }
 
     /**
@@ -598,7 +607,6 @@ public class ShopCart extends BaseFragment {
                     if (status == 1) {
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -689,7 +697,8 @@ public class ShopCart extends BaseFragment {
                     object = new JSONObject(result);
                     int status = object.getInt("status");
                     if (status == 1) {
-                        myHandler.sendEmptyMessage(0x001);
+                        getShopCartList(0);
+//                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         Toast.makeText(getActivity(), "加入购物车失败",
                                 Toast.LENGTH_SHORT).show();
@@ -936,33 +945,28 @@ public class ShopCart extends BaseFragment {
                     object = new JSONObject(result);
                     int status = object.getInt("status");
                     if (status == 1) {
-                        myHandler.sendEmptyMessage(0x001);
+                        getShopCartList(0);
+//                        myHandler.sendEmptyMessage(0x001);
                     } else {
                         toast("修改商品规格失败");
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
 
             @Override
             public void onFail(String result) {
-                // TODO Auto-generated method stub
-
             }
 
             @Override
             public void onCancel(Callback.CancelledException cex) {
-                // TODO Auto-generated method stub
-
             }
         });
     }
 
     @Override
     public void onDestroy() {
-        // TODO Auto-generated method stub
         super.onDestroy();
         if (window != null) {
             window.dismiss();

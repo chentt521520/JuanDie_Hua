@@ -40,19 +40,16 @@ public class ShopCartAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
         return list == null ? 0 : list.size();
     }
 
     @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return list.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return position;
     }
 
@@ -157,11 +154,6 @@ public class ShopCartAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 change.item(position, add.view);
-//                Intent i = new Intent();
-//                i.putExtra("goods_id", data.getGoods_id());
-//                i.setClass(context, GoodDetailsAty.class);
-//                context.startActivity(i);
-//                ((Activity) context).overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
         add.good_count.addTextChangedListener(new TextWatcher() {
