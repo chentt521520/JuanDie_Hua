@@ -59,19 +59,16 @@ public class myorder_adapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return list == null ? 0 : list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
 		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
@@ -79,8 +76,7 @@ public class myorder_adapter extends BaseAdapter {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final addview add;
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(
-					R.layout.myorder_adapter, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.myorder_adapter, null);
 			add = new addview();
 			setview(add, convertView);
 

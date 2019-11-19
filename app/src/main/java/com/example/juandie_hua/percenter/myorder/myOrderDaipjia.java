@@ -253,7 +253,8 @@ public class myOrderDaipjia extends Fragment implements re_jk {
                                             .getString("goods_number"), data_j
                                             .getString("goods_thumb"), data_j
                                             .getString("goods_name"), data_j
-                                            .getString("goods_price")));
+                                            .getString("goods_price"), data_j
+                                            .getString("goods_attr")));
                                 }
                                 String order_status = data_1
                                         .getString("order_status");

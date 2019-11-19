@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
@@ -351,7 +352,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
             case R.id.goods_detail_online_service_view://客服聊天
                 Intent intent1 = new MQIntentBuilder(GoodDetailsAty.this)
                         .setPreSendImageMessage(new File("预发送图片的路径"))
-                        .setCustomizedId(Fengmian.regid).build();
+                        .setCustomizedId(App.getInstance().getRegid()).build();
                 UiHelper.toActivity(GoodDetailsAty.this, intent1);
                 break;
 
@@ -1268,12 +1269,7 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                         if (jsb.contains("登录")) {
                             UiHelper.toLoginActivity(GoodDetailsAty.this);
                         } else if (jsb.contains("绑定")) {
-                            String iswxbd = (String) SharedPreferenceUtils.getPreference(GoodDetailsAty.this, Constant.iswxbd, "S");
-
-                            Intent i = new Intent();
-                            i.setClass(GoodDetailsAty.this, wx_bdgh.class);
-                            i.putExtra("type", iswxbd);
-                            UiHelper.toActivity(GoodDetailsAty.this, i);
+                            UiHelper.toActivity(GoodDetailsAty.this, wx_bdgh.class);
                         }
                     }
                 } catch (JSONException e) {

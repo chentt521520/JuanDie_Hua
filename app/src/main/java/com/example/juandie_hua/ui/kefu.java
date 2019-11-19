@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
@@ -82,11 +83,12 @@ public class kefu extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new MQIntentBuilder(getActivity())
-						.setPreSendImageMessage(new File("预发送图片的路径")).setCustomizedId(Fengmian.regid).build();
-				getActivity().startActivity(intent);
-				getActivity().overridePendingTransition(R.anim.push_left_in,
-						R.anim.push_left_out);
+                UiHelper.toChatActivity(getActivity());
+//				Intent intent = new MQIntentBuilder(getActivity())
+//						.setPreSendImageMessage(new File("预发送图片的路径")).setCustomizedId(Fengmian.regid).build();
+//				getActivity().startActivity(intent);
+//				getActivity().overridePendingTransition(R.anim.push_left_in,
+//						R.anim.push_left_out);
 			}
 		});
 	}

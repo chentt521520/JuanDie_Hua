@@ -258,6 +258,7 @@ public class myOrderDaishuo extends Fragment implements internet_landing.re_jk {
 											.getString("goods_number"), data_j
 											.getString("goods_thumb"), data_j
 											.getString("goods_name"), data_j
+                                            .getString("goods_price"), data_j
 											.getString("goods_price")));
 								}
 								String order_status = data_1

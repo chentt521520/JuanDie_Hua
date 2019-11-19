@@ -210,7 +210,7 @@ public class CreateOrder extends BaseActivity {
 
                 break;
             case R.id.ui_order_create_remark_view://备注
-                UiHelper.toRamarkActivity(activity);
+                UiHelper.toRemarkActivity(activity);
 
                 break;
             case R.id.ui_order_create_service_number_view://选择客服编号

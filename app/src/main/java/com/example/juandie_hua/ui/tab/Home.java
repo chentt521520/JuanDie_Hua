@@ -50,6 +50,7 @@ import cn.jpush.android.api.JPushInterface;
 
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
 import com.example.juandie_hua.percenter.seting.wx_bdgh;
@@ -198,7 +199,8 @@ public class Home extends BaseFragment implements te_oncl {
             v = inflater.inflate(R.layout.sye, container, false);
 
             x.view().inject(this, v);
-            Fengmian.regid = JPushInterface.getRegistrationID(getActivity());
+//            Fengmian.regid = JPushInterface.getRegistrationID(getActivity());
+            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
             setviewdata();
             setviewhw();
             setviewlisten();
@@ -315,7 +317,7 @@ public class Home extends BaseFragment implements te_oncl {
                     } else {
                         Intent i = new Intent(getActivity(), other_web1.class);
                         i.putExtra("titl", "生日/纪念日提醒");
-                        i.putExtra("url", "https://mnosu.juandie.com/user_holiday.html?is_app=1&uid=" + Fengmian.uid);
+                        i.putExtra("url", "https://mnosu.juandie.com/user_holiday.html?is_app=1&uid=" + App.getInstance().getUid());
                         UiHelper.toActivity(getActivity(), i);
                     }
                 }
@@ -325,10 +327,11 @@ public class Home extends BaseFragment implements te_oncl {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new MQIntentBuilder(getActivity())
-                        .setCustomizedId(Fengmian.regid)
-                        .setPreSendImageMessage(new File("预发送图片的路径")).build();
-                UiHelper.toActivity(getActivity(), intent);
+                UiHelper.toChatActivity(getActivity());
+//                Intent intent = new MQIntentBuilder(getActivity())
+//                        .setCustomizedId(Fengmian.regid)
+//                        .setPreSendImageMessage(new File("预发送图片的路径")).build();
+//                UiHelper.toActivity(getActivity(), intent);
 
                 MQManager.getInstance(getActivity().getApplicationContext())
                         .getUnreadMessages(new OnGetMessageListCallback() {
@@ -540,7 +543,7 @@ public class Home extends BaseFragment implements te_oncl {
             public void onResponse(String result) {
                 try {
                     JSONObject response = new JSONObject(result);
-                    Fengmian.phpsid = response.getString("PHPSESSID");
+//                    Fengmian.phpsid = response.getString("PHPSESSID");
                     if (response.getString("status").equals("1")) {
                         JSONObject data = response.getJSONObject("data");
 
@@ -876,12 +879,7 @@ public class Home extends BaseFragment implements te_oncl {
                     public void onClick(View v) {
                         dialog.dismiss();
                         if (text.contains("绑定")) {
-                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
-
-                            Intent i = new Intent();
-                            i.setClass(getActivity(), wx_bdgh.class);
-                            i.putExtra("type", iswxbd);
-                            UiHelper.toActivity(getActivity(), i);
+                            UiHelper.toActivity(getActivity(), wx_bdgh.class);
                         }
                     }
                 })

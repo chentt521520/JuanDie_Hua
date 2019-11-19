@@ -29,15 +29,16 @@ import cn.jpush.android.api.JPushInterface;
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseFragment;
+import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.model.CategoryList;
 import com.example.juandie_hua.app.HttpUrl;
 import com.example.juandie_hua.helper.UiHelper;
-import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
 import com.example.juandie_hua.ui.adapter.SubCategoryAdapter;
 import com.example.juandie_hua.ui.adapter.MainCategoryAdapter;
 import com.example.juandie_hua.ui.good.GoodSearchAty;
+import com.example.juandie_hua.utils.SharedPreferenceUtils;
 import com.example.juandie_hua.utils.StrUtils;
 import com.example.juandie_hua.utils.ViewUtils;
 
@@ -59,7 +60,7 @@ public class Category extends BaseFragment {
 
     private List<CategoryList> mainCategory;
     private MainCategoryAdapter mainAdapter;
-    private List<CategoryList.AttrList> subCategory;
+    private CategoryList subCategory;
     private SubCategoryAdapter subAdapter;
 
 
@@ -69,7 +70,7 @@ public class Category extends BaseFragment {
             v = inflater.inflate(R.layout.flei, container, false);
 
             x.view().inject(this, v);
-            Fengmian.regid = JPushInterface.getRegistrationID(getActivity());
+            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
             setviewhw();
             setviewdata();
             setviewlisten();
@@ -91,8 +92,8 @@ public class Category extends BaseFragment {
                 mainCategory.get(position).setCheck(true);
 
                 mainAdapter.refresh(mainCategory);
-                subCategory = mainCategory.get(position).getAll_attr_list();
-                if (StrUtils.listIsEmpty(subCategory)) {
+                subCategory = mainCategory.get(position);
+                if (StrUtils.listIsEmpty(subCategory.getAll_attr_list())) {
                     UiHelper.toGoodListActivity(getActivity(), mainCategory.get(position).getCat_id(),
                             mainCategory.get(position).getCat_name(), "", "sort_order", "desc", "");
 
@@ -120,6 +121,7 @@ public class Category extends BaseFragment {
         mainAdapter = new MainCategoryAdapter(getActivity(), mainCategory);
         listv_v.setAdapter(mainAdapter);
 
+        subCategory = new CategoryList();
         subAdapter = new SubCategoryAdapter(getActivity(), subCategory);
         listv_v2.setAdapter(subAdapter);
     }
@@ -161,7 +163,7 @@ public class Category extends BaseFragment {
                         } else {
                             mainCategory.get(0).setCheck(true);
                         }
-                        subCategory = mainCategory.get(0).getAll_attr_list();
+                        subCategory = mainCategory.get(0);
                         mainAdapter.refresh(mainCategory);
                         subAdapter.refresh(subCategory);
                     }

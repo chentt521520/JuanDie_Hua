@@ -40,7 +40,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.jpush.android.api.JPushInterface;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -52,7 +51,6 @@ import com.example.juandie_hua.app.BaseFragment;
 import com.example.juandie_hua.app.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.helper.UiHelper;
-import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
@@ -140,7 +138,6 @@ public class ShopCart extends BaseFragment {
     private ArrayList<ShopCartFavor> favorList;
 
     double totalPrice = 0.00;
-//    public static MyHandler myHandler;
 
     PopupWindow window;
 
@@ -160,13 +157,11 @@ public class ShopCart extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        myHandler = new MyHandler(this);
 
         if (v == null) {
             v = inflater.inflate(R.layout.gwuche, container, false);
 
             x.view().inject(this, v);
-            Fengmian.regid = JPushInterface.getRegistrationID(getActivity());
             landing = new Landing(getActivity(), R.style.CustomDialog);
 
             setviewhw();
@@ -200,7 +195,6 @@ public class ShopCart extends BaseFragment {
             @Override
             public void onRefresh() {
                 getShopCartList(0);
-//                myHandler.sendEmptyMessage(0x001);
                 spr.setRefreshing(false);
                 toast("刷新成功");
             }
@@ -267,6 +261,7 @@ public class ShopCart extends BaseFragment {
                 int numbermin = Integer.valueOf(data.getMin_number());
                 if (number == numbermin) {
                     number = numbermin;
+                    toast("不能再减少啦~");
                 } else
                     number--;
 

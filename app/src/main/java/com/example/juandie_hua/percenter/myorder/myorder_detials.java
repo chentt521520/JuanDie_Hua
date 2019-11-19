@@ -310,7 +310,8 @@ public class myorder_detials extends Activity implements re_jk {
 									.getString("goods_number"), dat
 									.getString("goods_thumb"), dat
 									.getString("goods_name"), dat
-									.getString("goods_price")));
+                                    .getString("goods_price"), dat
+                                    .getString("goods_attr")));
 						}
 
 						JSONObject dataall = data.getJSONObject("order");

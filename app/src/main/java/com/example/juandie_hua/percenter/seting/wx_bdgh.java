@@ -145,7 +145,7 @@ public class wx_bdgh extends Activity {
             public void onClick(View v) {
 
                 TimerTextView.isc = true;
-                String phone = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.pho1, "S");
+                String phone = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.phone, "S");
                 httpPost_getcode0(phone);
             }
         });
@@ -167,7 +167,7 @@ public class wx_bdgh extends Activity {
                         Toast.makeText(wx_bdgh.this, "请输入正确的手机号",
                                 Toast.LENGTH_LONG).show();
                 } else {
-                    String phone = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.pho1, "S");
+                    String phone = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.phone, "S");
 
                     if (te_next.getText().toString().equals("下一步")) {
                         if (!TextUtils.isEmpty(ed_yzm.getText().toString())) {
@@ -204,11 +204,9 @@ public class wx_bdgh extends Activity {
     }
 
     private void setviewhw() {
-        Intent i = getIntent();
-        type = i.getStringExtra("type");
-//        typeqd = i.getStringExtra("typeqd");
-
+        type = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.iswxbd, "S");
         typeqd = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.typeqd, "S");
+
         if (type.equals("2")) {// 绑定
             te_tit.setText("绑定手机号");
             lin_wxsj.setVisibility(View.GONE);
@@ -222,7 +220,7 @@ public class wx_bdgh extends Activity {
             v3.setVisibility(View.GONE);
             v4.setVisibility(View.GONE);
         }
-        pho = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.pho, "S");
+        pho = (String) SharedPreferenceUtils.getPreference(wx_bdgh.this, Constant.username, "S");
         String pho1 = pho.substring(3, 8);
         pho = pho.replace(pho1, "***");
         ed_phfu.setText(pho);
@@ -356,7 +354,7 @@ public class wx_bdgh extends Activity {
 
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
                         seeid = object.getString("PHPSESSID");
 
                         Toast.makeText(wx_bdgh.this, "验证码已发送到手机，请注意查收", Toast.LENGTH_SHORT).show();
@@ -405,7 +403,7 @@ public class wx_bdgh extends Activity {
                     if (status == 1) {
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
                         seeid = object.getString("PHPSESSID");
 
                         Toast.makeText(wx_bdgh.this, "验证码已发送到手机，请注意查收",
@@ -462,7 +460,7 @@ public class wx_bdgh extends Activity {
 
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.cook, object.getString("PHPSESSID"), "S");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.iswxbd, "1", "S");//已绑定
 
@@ -512,7 +510,7 @@ public class wx_bdgh extends Activity {
 
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.cook, object.getString("PHPSESSID"), "S");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.iswxbd, "1", "S");//已绑定
 
@@ -558,7 +556,7 @@ public class wx_bdgh extends Activity {
                     if (status == 1) {
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
                         seeid = object.getString("PHPSESSID");
 
                         Toast.makeText(wx_bdgh.this, "验证码已发送到手机，请注意查收",
@@ -610,7 +608,6 @@ public class wx_bdgh extends Activity {
                     if (status == 1) {
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(wx_bdgh.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
 
                         handler.sendEmptyMessage(0x01);
                     } else {

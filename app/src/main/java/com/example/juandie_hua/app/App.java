@@ -50,6 +50,7 @@ public class App extends Application {
 
         JPushInterface.setDebugMode(true); // 设置开启日志,发布时请关闭日志
         JPushInterface.init(this);
+        SharedPreferenceUtils.setPreference(this, Constant.regid, JPushInterface.getRegistrationID(getApplicationContext()), "S");
         MobSDK.init(this, "239afb3f89c14", "9cd984a02a040c5e4ea031c3680c548c");
 
         initPgy();
@@ -92,9 +93,35 @@ public class App extends Application {
     }
 
     public boolean isLogin() {
-        String cook = (String) SharedPreferenceUtils.getPreference(this, Constant.cook, "S");
-        return !TextUtils.isEmpty(cook) && !TextUtils.equals(cook, "0");
+        boolean isLogin = (boolean) SharedPreferenceUtils.getPreference(this, Constant.is_login, "B");
+        String uid = (String) SharedPreferenceUtils.getPreference(this, Constant.uid, "S");
+        return isLogin && !TextUtils.isEmpty(uid);
     }
+
+    public String getUid() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.uid, "S");
+    }
+
+    public String getRegid() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.regid, "S");
+    }
+
+    public String getMsgQuDao() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.msg_qudao, "S");
+    }
+
+    public String getMsgQuDao1() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.msg_qudao1, "S");
+    }
+
+    public String getOpenId() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.openid, "S");
+    }
+
+    public String getPhpSid() {
+        return (String) SharedPreferenceUtils.getPreference(this, Constant.phpsid, "S");
+    }
+
 
     @Override
     protected void attachBaseContext(Context context) {

@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.ui.MainActivity;
@@ -279,8 +280,7 @@ public class Pay_succ1 extends Activity {
 					Intent i = new Intent();
 					i.putExtra("titl", "生日/纪念日提醒");
 					i.putExtra("url",
-							"https://m.juandie.com/user_holiday.html?is_app=1&uid="
-									+ Fengmian.uid);
+                            "https://m.juandie.com/user_holiday.html?is_app=1&uid=" + App.getInstance().getUid());
 					i.setClass(Pay_succ1.this, other_web1.class);
 					startActivity(i);
 					overridePendingTransition(R.anim.push_left_in,

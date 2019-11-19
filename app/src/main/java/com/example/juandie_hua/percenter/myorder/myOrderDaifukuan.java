@@ -246,8 +246,7 @@ public class myOrderDaifukuan extends Fragment implements re_jk {
 						} else {
 							for (int i = 0; i < data_.length(); i++) {
 								JSONObject data_1 = data_.getJSONObject(i);
-								JSONArray data_2 = data_1
-										.getJSONArray("goods_list");
+                                JSONArray data_2 = data_1.getJSONArray("goods_list");
 								List<myorder_adaDatatwo> list2 = new ArrayList<>();
 								for (int j = 0; j < data_2.length(); j++) {
 									JSONObject data_j = data_2.getJSONObject(j);
@@ -256,7 +255,8 @@ public class myOrderDaifukuan extends Fragment implements re_jk {
 											.getString("goods_number"), data_j
 											.getString("goods_thumb"), data_j
 											.getString("goods_name"), data_j
-											.getString("goods_price")));
+                                            .getString("goods_price"), data_j
+                                            .getString("goods_attr")));
 								}
 								String order_status = data_1
 										.getString("order_status");

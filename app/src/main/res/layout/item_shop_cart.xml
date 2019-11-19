@@ -89,7 +89,7 @@
 
         <LinearLayout
             android:id="@+id/item_shop_cart_good_count_view"
-            android:layout_width="80dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/space_size_25"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -98,20 +98,18 @@
 
             <Button
                 android:id="@+id/item_shop_cart_good_count_de"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_size_35"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@drawable/biankuangqb2"
                 android:gravity="center"
                 android:text="-"
-                android:textColor="@color/black_666666"
+                android:textColor="@color/grey_999999"
                 android:textSize="@dimen/font_size_18" />
 
             <EditText
                 android:id="@+id/item_shop_cart_good_count"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_size_30"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@drawable/biankuangsx"
                 android:digits="0123456789"
                 android:enabled="false"
@@ -124,13 +122,12 @@
 
             <Button
                 android:id="@+id/item_shop_cart_good_count_increase"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/space_size_35"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@drawable/biankuangqb2"
                 android:gravity="center"
                 android:text="+"
-                android:textColor="@color/black_666666"
+                android:textColor="@color/black_333333"
                 android:textSize="@dimen/font_size_16" />
         </LinearLayout>
     </RelativeLayout>

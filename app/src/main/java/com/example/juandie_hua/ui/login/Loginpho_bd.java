@@ -162,7 +162,6 @@ public class Loginpho_bd extends BaseActivity {
                         TimerTextView.isc = true;
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(Loginpho_bd.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
 
                         toast("验证码已发送到手机，请注意查收");
                     } else {
@@ -208,7 +207,7 @@ public class Loginpho_bd extends BaseActivity {
                         TimerTextView.isc = true;
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(Loginpho_bd.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
 
                         toast("验证码已发送到手机，请注意查收");
                     } else {
@@ -256,7 +255,7 @@ public class Loginpho_bd extends BaseActivity {
                         String PHPSESSID = object.getString("PHPSESSID");
                         SharedPreferenceUtils.setPreference(Loginpho_bd.this, Constant.uid, uid, "S");
                         SharedPreferenceUtils.setPreference(Loginpho_bd.this, Constant.cook, PHPSESSID, "S");
-                        Fengmian.uid = uid;
+
 
                         loginResult();
                     } else {
@@ -304,7 +303,7 @@ public class Loginpho_bd extends BaseActivity {
                     if (status == 1) {
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(Loginpho_bd.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
+
 
                         loginResult();
                     } else {

@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.app.BaseFragment;
 import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.app.HttpUrl;
@@ -154,7 +155,7 @@ public class Me extends BaseFragment implements View.OnClickListener {
                 if (isLogin()) {
                     Intent i = new Intent();
                     i.putExtra("titl", "会员中心");
-                    i.putExtra("url", "https://mnosu.juandie.com/user-rank.html?is_app=1&uid=" + Fengmian.uid);
+                    i.putExtra("url", "https://mnosu.juandie.com/user-rank.html?is_app=1&uid=" + App.getInstance().getUid());
                     i.setClass(getActivity(), other_web1.class);
                     UiHelper.toActivity(getActivity(), i);
                 } else {
@@ -173,7 +174,6 @@ public class Me extends BaseFragment implements View.OnClickListener {
                         if (hbcs.contains(",")) {
                             String[] cs = hbcs.split(",");
                             get_hb(cs[0]);
-//                            showDialog(cs[0], cs[1], cs[2], cs[3]);
                         }
                     } else {
                         Intent i = new Intent();
@@ -189,7 +189,7 @@ public class Me extends BaseFragment implements View.OnClickListener {
                 } else {
                     Intent i = new Intent();
                     i.putExtra("titl", "生日/纪念日提醒");
-                    i.putExtra("url", "https://mnosu.juandie.com/user_holiday.html?is_app=1&uid=" + Fengmian.uid);
+                    i.putExtra("url", "https://mnosu.juandie.com/user_holiday.html?is_app=1&uid=" + App.getInstance().getUid());
                     i.setClass(getActivity(), other_web1.class);
                     UiHelper.toActivity(getActivity(), i);
                 }
@@ -206,10 +206,7 @@ public class Me extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.ui_my_service:
             case R.id.ui_my_online_service_view://在线客服
-                Intent i = new MQIntentBuilder(getActivity())
-                        .setPreSendImageMessage(new File("预发送图片的路径"))
-                        .setCustomizedId(Fengmian.regid).build();
-                UiHelper.toActivity(getActivity(), i);
+                UiHelper.toChatActivity(getActivity());
                 break;
             case R.id.ui_my_phone_service_view://客服电话
                 String pho = "4006089178";
@@ -340,7 +337,6 @@ public class Me extends BaseFragment implements View.OnClickListener {
      * 获取用户信息
      */
     private void getUserInfo() {
-//        final String url = "https://app.juandie.com/api_mobile/user.php?act=index";
         String url = HttpUrl.user + "act=" + HttpUrl.user_index;
 
         Xutils_Get_Post.getInstance().get(url, new Xutils_Get_Post.XCallBack() {
@@ -371,8 +367,6 @@ public class Me extends BaseFragment implements View.OnClickListener {
                             myAnniversary.setText(getResources().getString(R.string.add_notice));
                         }
 
-                        Fengmian.uid = jso1.getString("uid");
-
                         num1 = DecimalUtil.string2Int(user.getCount0());
                         num2 = DecimalUtil.string2Int(user.getCount1());
                         num3 = DecimalUtil.string2Int(user.getCount2());
@@ -388,31 +382,19 @@ public class Me extends BaseFragment implements View.OnClickListener {
 
                         //判断用户的登录方式
                         if (TextUtils.equals(user_info.getIs_app_wechat_user(), "1")) {//微信登录
-                            if (TextUtils.equals(user_info.getIs_wechat_binding_account(), "1")) {
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, "1", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.typeqd, "wx", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho, userName, "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho1, userPhone, "S");
+                            if (TextUtils.equals(user_info.getIs_wechat_binding_account(), "1")) {//已绑定手机号
+                                setInfo("1", "wx", userName, userPhone);
                             } else {
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, "2", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.typeqd, "wx", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho, userName, "S");
+                                setInfo("2", "wx", userName, "");
                             }
                         } else if (TextUtils.equals(user_info.getIs_third_user(), "1")) {//QQ，新浪登录
-                            if (TextUtils.equals(user_info.getIs_binding_account(), "1")) {
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, "1", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.typeqd, "dsf", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho, userName, "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho1, userPhone, "S");
+                            if (TextUtils.equals(user_info.getIs_binding_account(), "1")) {//已绑定手机号
+                                setInfo("1", "dsf", userName, userPhone);
                             } else {
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, "2", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.typeqd, "dsf", "S");
-                                SharedPreferenceUtils.setPreference(getActivity(), Constant.pho, userName, "S");
+                                setInfo("2", "dsf", userName, "");
                             }
                         } else {// 手机号登录
-                            SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, "0", "S");
-                            SharedPreferenceUtils.setPreference(getActivity(), Constant.pho, userName, "S");
-                            SharedPreferenceUtils.setPreference(getActivity(), Constant.pho1, userPhone, "S");
+                            setInfo("0", "", userName, "");
                         }
                     } else {
                         myName.setText("未登录");
@@ -423,34 +405,15 @@ public class Me extends BaseFragment implements View.OnClickListener {
                         myAnniversary.setText("添加提醒");
                         myCoupon.setText("点击领取");
 
-//                        String ids = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.zhuji, "S");
-//                        String hbcs = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.hbcs, "S");
-//                        String kfpho = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.kfpho, "S");
-//                        String openid = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.openid, "S");
-//                        String orderstr = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.perorderid, "S");
-//                        String ordertime = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.perordertime, "S");
+                        SharedPreferenceUtils.setPreference(getActivity(), Constant.uid, "", "S");
 
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.zhuji, ids, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.first, frist, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.bbh, bbh, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.hbcs, hbcs, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.kfpho, kfpho, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.openid, openid, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.perorderid, orderstr, "S");
-//                        SharedPreferenceUtils.setPreference(getActivity(), Constant.perordertime, ordertime, "S");
-
-                        Fengmian.uid = "";
                         num1 = num2 = num3 = 0;
                         handler.sendEmptyMessage(0x0021);
                         handler.sendEmptyMessage(0x0022);
                         handler.sendEmptyMessage(0x0023);
 
                     }
-//                    if (!preferences.getString("kfpho", "0").equals("0")) {
-//                        phoneService.setText(preferences.getString("kfpho", "0"));
-//                    }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
@@ -461,9 +424,15 @@ public class Me extends BaseFragment implements View.OnClickListener {
 
             @Override
             public void onCancel(Callback.CancelledException cex) {
-                // TODO Auto-generated method stub
             }
         });
+    }
+
+    private void setInfo(String iswxbd, String typeqd, String username, String phone) {
+        SharedPreferenceUtils.setPreference(getActivity(), Constant.iswxbd, iswxbd, "S");
+        SharedPreferenceUtils.setPreference(getActivity(), Constant.typeqd, typeqd, "S");
+        SharedPreferenceUtils.setPreference(getActivity(), Constant.username, username, "S");
+        SharedPreferenceUtils.setPreference(getActivity(), Constant.phone, phone, "S");
     }
 
     public void showDialogtis(final String text) {
@@ -476,12 +445,7 @@ public class Me extends BaseFragment implements View.OnClickListener {
                     public void onClick(View v) {
                         dialog.dismiss();
                         if (text.contains("绑定")) {
-                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
-
-                            Intent i = new Intent();
-                            i.setClass(getActivity(), wx_bdgh.class);
-                            i.putExtra("type", iswxbd);
-                            UiHelper.toActivity(getActivity(), i);
+                            UiHelper.toActivity(getActivity(), wx_bdgh.class);
                         }
 //                        if (text.contains("微信")) {
 //                            String iswxbd = (String) SharedPreferenceUtils.getPreference(getActivity(), Constant.iswxbd, "S");
@@ -538,8 +502,6 @@ public class Me extends BaseFragment implements View.OnClickListener {
 
                 case 0x003:
                     if (activity != null) {
-//                        activity.orderstr = (String) SharedPreferenceUtils.getPreference(activity.getActivity(), Constant.perorderid, "S");
-//                        activity.ordertime = (String) SharedPreferenceUtils.getPreference(activity.getActivity(), Constant.perordertime, "S");
                         activity.getUserInfo();
                     }
                     break;

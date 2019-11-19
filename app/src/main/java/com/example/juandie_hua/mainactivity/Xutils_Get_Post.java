@@ -19,6 +19,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.ui.MainActivity;
 
 public class Xutils_Get_Post {
@@ -106,33 +107,40 @@ public class Xutils_Get_Post {
      * @param callback
      */
     public void get(String url, final XCallBack callback) {
+        String openid = App.getInstance().getOpenId();
+        String uid = App.getInstance().getUid();
+        String regid = App.getInstance().getRegid();
+        String qudao = App.getInstance().getMsgQuDao();
+        String phpsid = App.getInstance().getPhpSid();
+
         String time = String.valueOf(System.currentTimeMillis() / 1000);
 
-        if (TextUtils.isEmpty(Fengmian.openid)) {
-            Fengmian.openid = getopenid();
+        if (TextUtils.isEmpty(openid)) {
+            openid = getopenid();
             Bundle b = new Bundle();
-            b.putString("openid", Fengmian.openid);
+            b.putString("openid", openid);
             Message msMessage = new Message();
             msMessage.what = 0x007;
             msMessage.setData(b);
             if (MainActivity.handler != null) {
                 MainActivity.handler.sendMessage(msMessage);
             }
-
         }
 
         String url1 = "&timestamp=" + time + "&sign="
-                + MD5.md5("wHljJNEhrNdLGTZX" + time) + "&openid="
-                + Fengmian.openid + "&uid=" + Fengmian.uid
-                + "&jpush_registration_id=" + Fengmian.regid + "&app_type="
-                + "android" + Fengmian.msg_qudao + "&app_version=5.6.8";
+                + MD5.md5("wHljJNEhrNdLGTZX" + time)
+                + "&openid=" + openid
+                + "&uid=" + uid
+                + "&jpush_registration_id=" + regid
+                + "&app_type=" + "android" + qudao
+                + "&app_version=5.6.8";
         url = url + url1;
 
         RequestParams params = new RequestParams(url);
-        if (TextUtils.isEmpty(Fengmian.phpsid)) {
-            params.addHeader("Cookie", "PHPSESSID=" + Fengmian.openid);
+        if (TextUtils.isEmpty(phpsid)) {
+            params.addHeader("Cookie", "PHPSESSID=" + openid);
         } else
-            params.addHeader("Cookie", "PHPSESSID=" + Fengmian.phpsid);
+            params.addHeader("Cookie", "PHPSESSID=" + phpsid);
 
         x.http().get(params, new Callback.CommonCallback<String>() {
             private boolean hasError = false;
@@ -180,30 +188,38 @@ public class Xutils_Get_Post {
         String time = String.valueOf(System.currentTimeMillis() / 1000);
         params.addParameter("timestamp", time);
         params.addParameter("sign", MD5.md5("wHljJNEhrNdLGTZX" + time));
-        if (TextUtils.isEmpty(Fengmian.openid)) {
-            Fengmian.openid = getopenid();
-            params.addParameter("openid", Fengmian.openid);
+
+        String openid = App.getInstance().getOpenId();
+        String uid = App.getInstance().getUid();
+        String regid = App.getInstance().getRegid();
+        String qudao1 = App.getInstance().getMsgQuDao1();
+        String phpsid = App.getInstance().getPhpSid();
+
+        if (TextUtils.isEmpty(openid)) {
+            openid = getopenid();
+            params.addParameter("openid", openid);
             Bundle b = new Bundle();
-            b.putString("openid", Fengmian.openid);
+            b.putString("openid", openid);
             Message msMessage = new Message();
             msMessage.what = 0x007;
             msMessage.setData(b);
             if (MainActivity.handler != null) {
                 MainActivity.handler.sendMessage(msMessage);
             }
-        } else
-            params.addParameter("openid", Fengmian.openid);
-        params.addParameter("uid", Fengmian.uid);
-        params.addParameter("jpush_registration_id", Fengmian.regid);
+        } else {
+            params.addParameter("openid", openid);
+        }
+
+        params.addParameter("uid", uid);
+        params.addParameter("jpush_registration_id", regid);
         params.addParameter("app_type", "android");
         params.addParameter("app_version", "5.6.8");
-        params.addParameter("channel", Fengmian.msg_qudao1);
+        params.addParameter("channel", qudao1);
 
-        // System.out.println(Fengmian.openid);
-        if (TextUtils.isEmpty(Fengmian.phpsid)) {
-            params.addHeader("Cookie", "PHPSESSID=" + Fengmian.openid);
+        if (TextUtils.isEmpty(phpsid)) {
+            params.addHeader("Cookie", "PHPSESSID=" + openid);
         } else
-            params.addHeader("Cookie", "PHPSESSID=" + Fengmian.phpsid);
+            params.addHeader("Cookie", "PHPSESSID=" + phpsid);
         x.http().post(params, new Callback.CommonCallback<String>() {
             private boolean hasError = false;
             private String result = null;

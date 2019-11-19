@@ -143,10 +143,9 @@ public class WXEntryActivity extends WechatHandlerActivity implements IWXAPIEven
                         // 避免微信登录与分享冲突
                         SharedPreferenceUtils.setPreference(WXEntryActivity.this, Constant.cook, object.getString("PHPSESSID"), "S");
                         SharedPreferenceUtils.setPreference(WXEntryActivity.this, Constant.uid, object.getString("uid"), "S");
-                        Fengmian.uid = object.getString("uid");
-                        JSONObject jso = object.getJSONObject("data");
+                        SharedPreferenceUtils.setPreference(WXEntryActivity.this, Constant.is_login, true, "B");
 
-                        UiHelper.refresh();
+                        JSONObject jso = object.getJSONObject("data");
 
                         //未绑定手机号
                         if (!jso.getString("is_binding_account").equals("true")) {
@@ -156,7 +155,7 @@ public class WXEntryActivity extends WechatHandlerActivity implements IWXAPIEven
                             startActivity(i);
                         }
                         //销毁上一个页面
-                        LoginAty.myHandler.sendEmptyMessage(0x001);
+                        LoginAty.myHandler.sendEmptyMessage(0x002);
                     }
                     //销毁当前页面
                     handler.sendEmptyMessage(0x001);

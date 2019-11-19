@@ -66,7 +66,7 @@ import com.tendcloud.tenddata.TCAgent;
 
 public class Fengmian extends BaseActivity {
     no_internet no_internet;
-    public static String uid = "", regid = "", msg_qudao = "", msg_qudao1 = "", openid = "", phpsid = "";
+//    public static String openid = "", phpsid = "";
 
     String gx_content = "", type = "1", android_url = "";
 
@@ -205,6 +205,7 @@ public class Fengmian extends BaseActivity {
         versionCode = PackageUtils.getVersionCode(this);
 
         String id = (String) SharedPreferenceUtils.getPreference(this, Constant.openid, "S");
+        String openid;
         if (!TextUtils.isEmpty(id) && !TextUtils.equals(id, "0")) {
             openid = id;
         } else {
@@ -248,14 +249,15 @@ public class Fengmian extends BaseActivity {
                 }
             }, 3000);
         }
-
-        regid = JPushInterface.getRegistrationID(Fengmian.this);
-        uid = (String) SharedPreferenceUtils.getPreference(this, Constant.uid, "S");
+        SharedPreferenceUtils.setPreference(Fengmian.this, Constant.regid, JPushInterface.getRegistrationID(Fengmian.this), "S");
 
         try {
             ApplicationInfo appInfo = this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            msg_qudao = "&channel=" + appInfo.metaData.getString("UMENG_CHANNEL");
-            msg_qudao1 = appInfo.metaData.getString("UMENG_CHANNEL");
+            String msg_qudao = "&channel=" + appInfo.metaData.getString("UMENG_CHANNEL");
+            String msg_qudao1 = appInfo.metaData.getString("UMENG_CHANNEL");
+
+            SharedPreferenceUtils.setPreference(Fengmian.this, Constant.msg_qudao, msg_qudao, "S");
+            SharedPreferenceUtils.setPreference(Fengmian.this, Constant.msg_qudao1, msg_qudao1, "S");
 
             TCAgent.init(this.getApplicationContext(), "A374F8C601874548AD3DF8809D730E5B", msg_qudao1);
 
@@ -336,7 +338,7 @@ public class Fengmian extends BaseActivity {
             public void onResponse(String result) {
                 try {
                     JSONObject response = new JSONObject(result);
-                    phpsid = response.getString("PHPSESSID");
+                    String phpsid = response.getString("PHPSESSID");
 
                     if (response.getString("status").equals("1")) {
                         JSONObject data = response.getJSONObject("data");

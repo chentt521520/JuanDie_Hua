@@ -1,15 +1,16 @@
 package com.example.juandie_hua.percenter.myorder;
 
 public class myorder_adaDatatwo {
-	String goods_id, number, url, goodsName, price;
+    String goods_id, number, url, goodsName, price, goodSpec;
 
 	public myorder_adaDatatwo(String goods_id, String number, String url,
-			String goodsName, String price) {
+                              String goodsName, String price, String goodSpec) {
 		this.goods_id = goods_id;// goods_id表示订单状态
 		this.number = number;
 		this.url = url;
 		this.goodsName = goodsName;
 		this.price = price;
+        this.goodSpec = goodSpec;
 	}
 
 	public String getgoods_id() {
@@ -51,4 +52,12 @@ public class myorder_adaDatatwo {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
+    public String getGoodSpec() {
+        return goodSpec;
+    }
+
+    public void setGoodSpec(String goodSpec) {
+        this.goodSpec = goodSpec;
+    }
 }

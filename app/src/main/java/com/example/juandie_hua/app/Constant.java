@@ -37,13 +37,14 @@ public class Constant {
     public static final String hbcs = "hbcs";
     public static final String kfpho = "kfpho";
     public static final String sye_dl = "sye_dl";
-    /*已绑定*/
-    /*是否绑定微信*/
+    /*是否绑定手机号 0:不需要绑定；1已绑定；2未绑定*/
     public static final String iswxbd = "iswxbd";
+    /*第三方登录标志 "wx"微信登录；"dsf"QQ微博登录*/
     public static final String typeqd = "typeqd";
-    /*屏蔽中间的手机号*/
-    public static final String pho = "pho";
-    public static final String pho1 = "pho1";
+    /*屏蔽中间的手机号*//*登录账号*/
+    public static final String username = "username";
+    /*手机号*/
+    public static final String phone = "phone";
     /*足迹*/
     public static final String zhuji = "zhuji";
     /*是否为首次登录*/
@@ -54,6 +55,10 @@ public class Constant {
     public static final String zfddh = "zfddh";
     /*是否为分享*/
     public static final String isfenx = "isfenx";
+    public static final String phpsid = "phpsid";
+    public static final String msg_qudao = "msg_qudao";
+    public static final String msg_qudao1 = "msg_qudao1";
+    public static final String regid = "regid";
 
 
     public static final String mq = "mq";

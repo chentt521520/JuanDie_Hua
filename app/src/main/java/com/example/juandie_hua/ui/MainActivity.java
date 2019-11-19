@@ -33,6 +33,7 @@ import android.widget.Toast;
 import cn.jpush.android.api.JPushInterface;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.percenter.seting.seting;
 import com.example.juandie_hua.ui.tab.AboutAs;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
@@ -87,9 +88,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        JPushInterface.init(getApplicationContext());
-        Fengmian.regid = JPushInterface.getRegistrationID(getApplicationContext());
-
+//        JPushInterface.init(getApplicationContext());
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.mainactivity);
@@ -264,7 +263,7 @@ public class MainActivity extends BaseActivity {
             case R.id.mainact_tegwc:
                 currentId = 3;
                 vpage.setCurrentItem(3, false);
-                ShopCart.myHandler.sendEmptyMessage(0x001);
+//                ShopCart.myHandler.sendEmptyMessage(0x001);
                 StatusBarUtils.with(this).setBarColor(R.color.white_fff);
                 break;
             case R.id.mainact_tewd:

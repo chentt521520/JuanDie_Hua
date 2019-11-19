@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.model.ShopCartGood;
+import com.example.juandie_hua.utils.DecimalUtil;
 import com.example.juandie_hua.utils.TextViewUtils;
 
 import java.util.List;
@@ -82,12 +83,12 @@ public class ShopCartAdapter extends BaseAdapter {
         final ShopCartGood data = list.get(position);
 
         if (TextUtils.equals(data.getIs_festival(), "1")) {
-            add.good_price.setText("￥" + data.getGoods_price() + "(节日价)");
+            add.good_price.setText(DecimalUtil.priceAddDecimal(data.getGoods_price()) + "(节日价)");
         } else
-            add.good_price.setText("￥" + data.getGoods_price());
+            add.good_price.setText(DecimalUtil.priceAddDecimal(data.getGoods_price()));
 
         TextViewUtils.setTextAddLine(add.good_orgprice);
-        add.good_orgprice.setText("￥" + data.getMarket_price());
+        add.good_orgprice.setText(DecimalUtil.priceAddDecimal(data.getMarket_price()));
 
         String name = data.getGoods_name();
         if (name.contains("-")) {
@@ -102,10 +103,10 @@ public class ShopCartAdapter extends BaseAdapter {
         ImageUtils.setImage(context.getApplicationContext(), data.getGoods_thumb(), add.good_image);
 
         add.good_count.setText(data.getGoods_number());
-        if (list.get(position).getGoods_number().equals("1")) {
+        if (list.get(position).getGoods_number().equals(data.getMin_number())) {
             add.good_count_de.setTextColor(0xff999999);
         } else
-            add.good_count_de.setTextColor(0xff666666);
+            add.good_count_de.setTextColor(0xff333333);
 
         add.good_specs.setVisibility(TextUtils.isEmpty(data.getGoods_attr()) ? View.GONE : View.VISIBLE);
         add.good_specs.setText(data.getGoods_attr().trim());
@@ -123,10 +124,11 @@ public class ShopCartAdapter extends BaseAdapter {
             public void onClick(View v) {
 
                 change.jian(position, add.good_count);
-                if (add.good_count.getText().toString().equals("1")) {
+
+                if (add.good_count.getText().toString().equals(data.getMin_number())) {
                     add.good_count_de.setTextColor(0xff999999);
                 } else
-                    add.good_count_de.setTextColor(0xff666666);
+                    add.good_count_de.setTextColor(0xff333333);
             }
         });
         add.good_count_increase.setOnClickListener(new OnClickListener() {
@@ -135,10 +137,10 @@ public class ShopCartAdapter extends BaseAdapter {
             public void onClick(View v) {
 
                 change.jia(position, add.good_count);
-                if (add.good_count.getText().toString().equals("1")) {
+                if (add.good_count.getText().toString().equals(data.getMin_number())) {
                     add.good_count_de.setTextColor(0xff999999);
                 } else
-                    add.good_count_de.setTextColor(0xff666666);
+                    add.good_count_de.setTextColor(0xff333333);
             }
         });
         add.good_delete.setOnClickListener(new OnClickListener() {

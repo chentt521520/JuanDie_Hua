@@ -167,7 +167,6 @@ public class Loginpho extends BaseActivity {
 
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(Loginpho.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
                         seeid = object.getString("PHPSESSID");
 
                         toast("验证码已发送到手机，请注意查收");
@@ -218,10 +217,10 @@ public class Loginpho extends BaseActivity {
                         SharedPreferenceUtils.setPreference(Loginpho.this, Constant.uid, uid, "S");
                         SharedPreferenceUtils.setPreference(Loginpho.this, Constant.cook, object.getString("PHPSESSID"), "S");
                         SharedPreferenceUtils.setPreference(Loginpho.this, Constant.is_login, true, "B");
-                        Fengmian.uid = uid;
 
-                        UiHelper.refresh();
-                        LoginAty.myHandler.sendEmptyMessage(0x001);
+                        LoginAty.myHandler.sendEmptyMessage(0x002);
+//                        UiHelper.refresh();
+//                        LoginAty.myHandler.sendEmptyMessage(0x001);
 
                         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
                         finish();

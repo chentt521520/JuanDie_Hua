@@ -123,7 +123,6 @@ public class LoginBindPhoneAty extends BaseActivity {
                         TimerTextView.isc = true;
                         String uid = object.getString("uid");
                         SharedPreferenceUtils.setPreference(LoginBindPhoneAty.this, Constant.uid, uid, "S");
-                        Fengmian.uid = uid;
 
                         toast("验证码已发送到手机，请注意查收");
                     } else {
@@ -170,7 +169,6 @@ public class LoginBindPhoneAty extends BaseActivity {
                         String PHPSESSID = object.getString("PHPSESSID");
                         SharedPreferenceUtils.setPreference(LoginBindPhoneAty.this, Constant.uid, uid, "S");
                         SharedPreferenceUtils.setPreference(LoginBindPhoneAty.this, Constant.cook, PHPSESSID, "S");
-                        Fengmian.uid = uid;
 
                         loginResult();
                     } else {

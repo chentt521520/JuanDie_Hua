@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
 import com.example.juandie_hua.app.BaseActivity;
@@ -144,11 +145,7 @@ public class seting extends BaseActivity implements re_jk {
 
             @Override
             public void onClick(View v) {
-                String iswxbd = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.iswxbd, "S");
-                Intent i = new Intent();
-                i.setClass(seting.this, wx_bdgh.class);
-                i.putExtra("type", iswxbd);
-                UiHelper.toActivity(seting.this, i);
+                UiHelper.toActivity(seting.this, wx_bdgh.class);
             }
         });
 
@@ -166,7 +163,7 @@ public class seting extends BaseActivity implements re_jk {
             public void onClick(View v) {
                 Intent i = new Intent();
                 i.putExtra("titl", "关于我们");
-                i.putExtra("url", "https://m.juandie.com/help-aboutus.html?is_app=1" + Fengmian.uid);
+                i.putExtra("url", "https://m.juandie.com/help-aboutus.html?is_app=1" + App.getInstance().getUid());
                 i.setClass(seting.this, other_web1.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.push_left_in,
@@ -180,11 +177,11 @@ public class seting extends BaseActivity implements re_jk {
         this.getTitleView().setTitleText("设置");
         te_quit.setVisibility(isLogin() ? View.VISIBLE : View.GONE);
         String iswxbd = (String) SharedPreferenceUtils.getPreference(seting.this, Constant.iswxbd, "S");
-        if (TextUtils.equals(iswxbd, "1")) {
-            te_wx1.setText((String) SharedPreferenceUtils.getPreference(seting.this, Constant.pho, "S"));
+        if (TextUtils.equals(iswxbd, "1")) {//已绑定
+            te_wx1.setText((String) SharedPreferenceUtils.getPreference(seting.this, Constant.phone, "S"));
             te_wx.setText("更换");
-        } else if (TextUtils.equals(iswxbd, "2")) {
-            te_wx1.setText((String) SharedPreferenceUtils.getPreference(seting.this, Constant.pho, "S"));
+        } else if (TextUtils.equals(iswxbd, "2")) {//未绑定
+            te_wx1.setText((String) SharedPreferenceUtils.getPreference(seting.this, Constant.phone, "S"));
             te_wx.setText("去绑定");
             lin_wx.setVisibility(View.VISIBLE);
         } else {
@@ -237,13 +234,12 @@ public class seting extends BaseActivity implements re_jk {
                         SharedPreferenceUtils.setPreference(seting.this, Constant.cook, "", "S");
                         SharedPreferenceUtils.setPreference(seting.this, Constant.iswxbd, "", "S");
                         SharedPreferenceUtils.setPreference(seting.this, Constant.typeqd, "", "S");
-                        SharedPreferenceUtils.setPreference(seting.this, Constant.pho, "", "S");
-                        SharedPreferenceUtils.setPreference(seting.this, Constant.pho1, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.username, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.phone, "", "S");
+                        SharedPreferenceUtils.setPreference(seting.this, Constant.is_login, false, "B");
                         toast("退出成功");
 
-                        Fengmian.uid = "";
-                        Home.myHandler.sendEmptyMessage(0x003);
-                        Me.handler.sendEmptyMessage(0x003);
+                        UiHelper.refresh();
 
                         finish();
                         overridePendingTransition(R.anim.push_right_out, R.anim.push_right_in);
@@ -251,7 +247,6 @@ public class seting extends BaseActivity implements re_jk {
                         toast(jso1.getString("msg"));
                     }
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
@@ -264,8 +259,6 @@ public class seting extends BaseActivity implements re_jk {
 
             @Override
             public void onCancel(CancelledException cex) {
-                // TODO Auto-generated method stub
-
             }
         });
     }
@@ -292,13 +285,10 @@ public class seting extends BaseActivity implements re_jk {
                         }
 
                     } else {
-                        String jsb = response.getString("msg");
-                        Toast.makeText(seting.this, jsb, Toast.LENGTH_SHORT)
-                                .show();
+                        toast(response.getString("msg"));
                     }
                     inLanding.dismisslanding();
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }

@@ -15,10 +15,13 @@ import android.text.TextUtils;
 import cn.jpush.android.api.JPushInterface;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.Constant;
+import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.ui.good.GoodDetailsAty;
 import com.example.juandie_hua.ui.good.GoodListAty;
 import com.example.juandie_hua.mainactivity.other_web;
+import com.example.juandie_hua.utils.SharedPreferenceUtils;
 import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
 /**
@@ -42,9 +45,10 @@ public class MyReceiver extends BroadcastReceiver {
 
 			if (JPushInterface.ACTION_REGISTRATION_ID
 					.equals(intent.getAction())) {
-				String regId = bundle
-						.getString(JPushInterface.EXTRA_REGISTRATION_ID);
-				Fengmian.regid = regId;
+                String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
+
+                SharedPreferenceUtils.setPreference(context, Constant.regid, regId, "S");
+//				Fengmian.regid = regId;
 				Logger.d(TAG, "[MyReceiver] 接收Registration Id : " + regId);
 				// send the Registration Id to your server...
 
@@ -137,11 +141,12 @@ public class MyReceiver extends BroadcastReceiver {
 							R.anim.push_left_in, R.anim.push_left_out);
 
 				} else if (goodsid_bin[0].equals("c")) {
-					Intent intent1 = new MQIntentBuilder(context)
-							.setCustomizedId(Fengmian.regid)
-							.setPreSendImageMessage(new File("预发送图片的路径"))
-							.build();
-					context.startActivity(intent1);
+                    UiHelper.toChatActivity(context);
+//					Intent intent1 = new MQIntentBuilder(context)
+//							.setCustomizedId(Fengmian.regid)
+//							.setPreSendImageMessage(new File("预发送图片的路径"))
+//							.build();
+//					context.startActivity(intent1);
 
 				} else {
 					Intent i = new Intent();

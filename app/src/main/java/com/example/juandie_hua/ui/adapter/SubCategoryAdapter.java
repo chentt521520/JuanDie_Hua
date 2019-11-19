@@ -4,8 +4,10 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,18 +21,22 @@ import android.widget.TextView;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.model.CategoryList;
 import com.example.juandie_hua.helper.UiHelper;
+import com.example.juandie_hua.ui.good.GoodListAty;
 
 public class SubCategoryAdapter extends BaseAdapter {
     private Context context;
+    private CategoryList category;
     private List<CategoryList.AttrList> list;
 
-    public SubCategoryAdapter(Context context, List<CategoryList.AttrList> list) {
+    public SubCategoryAdapter(Context context, CategoryList category) {
         this.context = context;
-        this.list = list;
+        this.category = category;
+        this.list = category.getAll_attr_list();
     }
 
-    public void refresh(List<CategoryList.AttrList> list) {
-        this.list = list;
+    public void refresh(CategoryList category) {
+        this.category = category;
+        this.list = category.getAll_attr_list();
         notifyDataSetChanged();
     }
 
@@ -68,6 +74,7 @@ public class SubCategoryAdapter extends BaseAdapter {
         final CategoryList.AttrList data = list.get(position);
         add.te_name.setText(data.getFilter_attr_name());
 
+        list.get(position);
         final List<CategoryList.AttrList.AttrListBean> attrList = list.get(position).getAttr_list();
 
         SubCategoryItemAdapter ada = new SubCategoryItemAdapter(context, attrList);
@@ -94,7 +101,8 @@ public class SubCategoryAdapter extends BaseAdapter {
 
                 CategoryList.AttrList.AttrListBean attrListBean = attrList.get(position1);
 
-                UiHelper.toGoodListActivity((Activity) context, attrListBean.getGoods_id(), attrListBean.getAttr_value(),  attrListBean.getFilter_attr(),  attrListBean.getOrder(), attrListBean.getBy(), positionget);
+//                UiHelper.toGoodListActivity((Activity) context, category.getCat_id(), attrListBean.getAttr_value(), attrListBean.getFilter_attr(), attrListBean.getOrder(), attrListBean.getBy(), positionget);
+                UiHelper.toGoodListActivity((Activity) context, category.getCat_id(), "", attrListBean.getGoods_id(), attrListBean.getOrder(), attrListBean.getBy(), positionget);
             }
         });
 

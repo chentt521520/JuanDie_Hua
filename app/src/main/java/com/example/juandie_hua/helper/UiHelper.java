@@ -1,10 +1,13 @@
 package com.example.juandie_hua.helper;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.juandie_hua.R;
+import com.example.juandie_hua.app.App;
+import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mycar.orderpay.SendDateSelect;
 import com.example.juandie_hua.mycar.orderpay.beizu;
 import com.example.juandie_hua.mycar.orderpay.heka;
@@ -20,6 +23,10 @@ import com.example.juandie_hua.ui.order.AddressManager;
 import com.example.juandie_hua.ui.tab.Home;
 import com.example.juandie_hua.ui.tab.Me;
 import com.example.juandie_hua.ui.tab.ShopCart;
+import com.example.juandie_hua.utils.SharedPreferenceUtils;
+import com.meiqia.meiqiasdk.util.MQIntentBuilder;
+
+import java.io.File;
 
 public class UiHelper {
 
@@ -40,6 +47,12 @@ public class UiHelper {
     public static final int fromHome = 0x100;
     public static final int fromShopCart = 0x101;
     public static final int fromMe = 0x102;
+
+    /*RequestCode*/
+    public static final int Login = 0x1001;
+    public static final int LoginPhone = 0x1002;
+    public static final int LoginQQ = 0x1003;
+    public static final int LoginWX = 0x1004;
 
     public static final String packShopCat = "com.example.juandie_hua.Ui.ShopCatActivity";
 
@@ -148,11 +161,31 @@ public class UiHelper {
         activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
     }
 
-    public static void toRamarkActivity(Activity activity) {
+    public static void toRemarkActivity(Activity activity) {
         Intent intent = new Intent(activity, beizu.class);
 //    ix_bz.putExtra("bz", te_bzxx.getText().toString());
         activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+    }
+
+    /**
+     * 进入客服聊天界面
+     *
+     * @param activity activity
+     */
+    public static void toChatActivity(Activity activity) {
+
+        Intent i = new MQIntentBuilder(activity)
+                .setPreSendImageMessage(new File("预发送图片的路径"))
+                .setCustomizedId(App.getInstance().getRegid()).build();
+        UiHelper.toActivity(activity, i);
+    }
+
+    public static void toChatActivity(Context activity) {
+        Intent i = new MQIntentBuilder(activity)
+                .setPreSendImageMessage(new File("预发送图片的路径"))
+                .setCustomizedId(App.getInstance().getRegid()).build();
+        activity.startActivity(i);
     }
 
     public static void finish(Activity activity) {

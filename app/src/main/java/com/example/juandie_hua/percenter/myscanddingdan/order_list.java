@@ -182,7 +182,8 @@ public class order_list extends Activity implements re_jk {
 										.getString("goods_id"), data_j
 										.getString("goods_number"), data_j
 										.getString("goods_thumb"), data_j
-										.getString("goods_name"), "无"));
+                                        .getString("goods_name"), "无", data_j
+                                        .getString("goods_attr")));
 								order_id = data_j.getString("order_id");
 							}
 
