@@ -275,6 +275,7 @@ public class Me extends BaseFragment implements View.OnClickListener {
                 try {
                     JSONObject response = new JSONObject(result);
                     if (response.getString("status").equals("1")) {
+                        Home.myHandler.sendEmptyMessage(0x003);
                         toast(response.getString("msg"));
                         Intent i = new Intent(getActivity(), MyCouponActivity.class);
                         i.putExtra("type", "0");
