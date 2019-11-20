@@ -45,6 +45,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
+import com.example.juandie_hua.mainactivity.goods.MyGridView;
 import com.example.juandie_hua.model.GoodSpecs;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.app.BaseFragment;
@@ -124,7 +125,7 @@ public class ShopCart extends BaseFragment {
      * 猜你喜欢列表
      */
     @ViewInject(R.id.shop_cart_favor_grid)
-    GridView favor_grid;
+    MyGridView favor_grid;
     /**
      * 下拉刷新
      */
@@ -252,7 +253,7 @@ public class ShopCart extends BaseFragment {
                 }
                 data.setGoods_number(number + "");
                 ((EditText) view).setText(number + "");
-                jishuan();
+//                jishuan();
             }
 
             @Override
@@ -271,7 +272,7 @@ public class ShopCart extends BaseFragment {
                 }
                 data.setGoods_number(number + "");
                 ((EditText) view).setText(number + "");
-                jishuan();
+//                jishuan();
             }
 
             @Override
@@ -314,7 +315,6 @@ public class ShopCart extends BaseFragment {
     private void setviewhw() {
         if (intentFlag == UiHelper.fromGoodDetail) {
             im_return.setVisibility(View.VISIBLE);
-//            myHandler.sendEmptyMessage(0x001);
         } else {
             im_return.setVisibility(View.GONE);
         }
@@ -323,25 +323,25 @@ public class ShopCart extends BaseFragment {
         favor_grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
     }
 
-
-    /**
-     * 计算总价
-     */
-    public void jishuan() {
-        totalPrice = 0.00;
-        for (int i = 0; i < goodList.size(); i++) {
-            int num = Integer.valueOf(goodList.get(i).getGoods_number());
-            int dou = (int) Double.parseDouble(goodList.get(i).getGoods_price());
-            int price = Integer.valueOf(dou);
-            totalPrice += num * price;
-        }
-        String pr = totalPrice + "";
-        if (pr.substring(pr.indexOf(".")).equals(".0")) {
-            pr = pr + "0";
-        }
-        String price = "合计：" + "<font color = \"#C22222\"><big>" + "¥" + pr + "<big></font>";
-        te_price.setText(Html.fromHtml(price));
-    }
+//
+//    /**
+//     * 计算总价
+//     */
+//    public void jishuan() {
+//        totalPrice = 0.00;
+//        for (int i = 0; i < goodList.size(); i++) {
+//            int num = Integer.valueOf(goodList.get(i).getGoods_number());
+//            int dou = (int) Double.parseDouble(goodList.get(i).getGoods_price());
+//            int price = Integer.valueOf(dou);
+//            totalPrice += num * price;
+//        }
+//        String pr = totalPrice + "";
+//        if (pr.substring(pr.indexOf(".")).equals(".0")) {
+//            pr = pr + "0";
+//        }
+//        String price = "合计：" + "<font color = \"#C22222\"><big>" + "¥" + pr + "<big></font>";
+//        te_price.setText(Html.fromHtml(price));
+//    }
 
 
     /**
@@ -463,6 +463,9 @@ public class ShopCart extends BaseFragment {
                         });
 
                         showContent(StrUtils.listIsEmpty(goodList));
+
+                        String price = "合计：" + "<font color = \"#C22222\"><big>" + DecimalUtil.priceAddDecimal(jso.getString("total_cart_price")) + "<big></font>";
+                        te_price.setText(Html.fromHtml(price));
 //
 //                        if (type == 1) {
 //                            if (!StrUtils.listIsEmpty(goodList)) {
@@ -552,23 +555,23 @@ public class ShopCart extends BaseFragment {
             //无数据
             layout_nogoods.setVisibility(View.VISIBLE);
             re_jiesuan.setVisibility(View.GONE);
+            spr.setVisibility(View.GONE);
             shopCartFavorAdapter.refresh(favorList);
 
         } else {
             //有数据
+            spr.setVisibility(View.VISIBLE);
             layout_nogoods.setVisibility(View.GONE);
             re_jiesuan.setVisibility(View.VISIBLE);
-            jishuan();
+//            jishuan();
+            shopCartAdapter.refresh(goodList);
+            shopCartRecommondAdapter.freshList(recommondList);
+            if (StrUtils.listIsEmpty(recommondList)) {
+                te_titui.setVisibility(View.GONE);
+            } else {
+                te_titui.setVisibility(View.VISIBLE);
+            }
         }
-
-        shopCartAdapter.refresh(goodList);
-        shopCartRecommondAdapter.freshList(recommondList);
-        if (StrUtils.listIsEmpty(recommondList)) {
-            te_titui.setVisibility(View.GONE);
-        } else {
-            te_titui.setVisibility(View.VISIBLE);
-        }
-
     }
 
     /**
@@ -635,10 +638,9 @@ public class ShopCart extends BaseFragment {
                 try {
                     JSONObject response = new JSONObject(result);
                     if (response.getString("status").equals("1")) {
+                        getShopCartList(0);
                     } else {
-                        String jsb = response.getString("msg");
-                        Toast.makeText(getActivity(), jsb, Toast.LENGTH_SHORT)
-                                .show();
+                        toast(response.getString("msg"));
                     }
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block

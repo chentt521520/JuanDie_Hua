@@ -212,7 +212,7 @@ public class addshdz extends BaseActivity {
                     toast("请填写正确的收货人电话");
                     return;
                 }
-                if (te_shrdz1.getText().toString().equals("请选择")) {
+                if (TextUtils.isEmpty(te_shrdz1.getText().toString())) {
                     toast("请选择地址");
                     return;
                 }

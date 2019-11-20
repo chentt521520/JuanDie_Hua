@@ -235,7 +235,7 @@ public class Home extends BaseFragment implements te_oncl {
         int w = dm.widthPixels;
 
         ViewUtils.setviewhw_lin(refragment, LayoutParams.MATCH_PARENT,
-                (int) (w * 449 / 750.0), 0, 0, 0, 0);
+                (int) (w * 450 / 750.0), 0, 0, 0, 0);
 
         bd = new BadgeView(getActivity());
         isShow = isLogin();

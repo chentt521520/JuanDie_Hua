@@ -702,35 +702,6 @@ public class GoodDetailsAty extends BaseActivity implements recommendAdapter.got
                          * 节日价
                          */
                         JSONObject jsoc = data.getJSONObject("festival_price_info");
-//                        String festival_price_info = data.getString("festival_price_info");
-//                        if (TextUtils.equals("[]", festival_price_info)) {
-//                            //
-//                        } else {
-//                            FestivalPrice festivalPrice = JSON.parseObject(festival_price_info, FestivalPrice.class);
-//                            if (festivalPrice != null) {
-//                                if (festivalPrice.isFestival_open()) {
-//                                    is_festival = "0";
-//                                    single_price_view.setVisibility(View.GONE);
-//                                    double_price_view.setVisibility(View.VISIBLE);
-//
-//                                    normal_price_title.setText(festivalPrice.getFestival_price_now().getTitle());
-//                                    festival_price_title.setText(festivalPrice.getFestival_price_old().getTitle());
-//                                    normal_price.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getPrice()));
-//                                    festival_price.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_old().getPrice()));
-//                                    normal_orgprice.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getMarket_price()));
-//                                    festival_orgprice.setText(DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_old().getMarket_price()));
-//
-//                                    goodPrice = DecimalUtil.priceAddDecimal(festivalPrice.getFestival_price_now().getPrice());
-//                                } else {
-//                                    is_festival = "";
-//                                    single_price_view.setVisibility(View.VISIBLE);
-//                                    double_price_view.setVisibility(View.GONE);
-//                                    goodPrice = DecimalUtil.priceAddDecimal(data.getString("shop_price"));
-////                                    goodPrice = "￥" + data.getString("shop_price");
-//                                }
-//                            }
-//                        }
-
 
                         if (jsoc.getString("festival_open").equals("true")) {
                             is_festival = "0";
