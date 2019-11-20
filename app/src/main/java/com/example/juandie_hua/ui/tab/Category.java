@@ -24,21 +24,17 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import cn.jpush.android.api.JPushInterface;
-
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseFragment;
-import com.example.juandie_hua.app.Constant;
 import com.example.juandie_hua.model.CategoryList;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
 import com.example.juandie_hua.ui.adapter.SubCategoryAdapter;
 import com.example.juandie_hua.ui.adapter.MainCategoryAdapter;
 import com.example.juandie_hua.ui.good.GoodSearchAty;
-import com.example.juandie_hua.utils.SharedPreferenceUtils;
 import com.example.juandie_hua.utils.StrUtils;
 import com.example.juandie_hua.utils.ViewUtils;
 
@@ -70,7 +66,7 @@ public class Category extends BaseFragment {
             v = inflater.inflate(R.layout.flei, container, false);
 
             x.view().inject(this, v);
-            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
+//            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
             setviewhw();
             setviewdata();
             setviewlisten();
@@ -94,9 +90,8 @@ public class Category extends BaseFragment {
                 mainAdapter.refresh(mainCategory);
                 subCategory = mainCategory.get(position);
                 if (StrUtils.listIsEmpty(subCategory.getAll_attr_list())) {
-                    UiHelper.toGoodListActivity(getActivity(), mainCategory.get(position).getCat_id(),
-                            mainCategory.get(position).getCat_name(), "", "sort_order", "desc", "");
-
+//                    UiHelper.toGoodListActivity(getActivity(), mainCategory.get(position).getCat_id(), mainCategory.get(position).getCat_name(), "", "sort_order", "desc", "");
+                    UiHelper.toGoodListActivity(getActivity(), mainCategory.get(position).getCat_id(), "", "", "sort_order", "desc", "");
                 } else {
                     subAdapter.refresh(subCategory);
                 }

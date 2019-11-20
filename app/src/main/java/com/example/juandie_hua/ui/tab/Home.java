@@ -1,6 +1,5 @@
 package com.example.juandie_hua.ui.tab;
 
-import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,8 +45,6 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import cn.jpush.android.api.JPushInterface;
-
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.App;
@@ -56,13 +53,12 @@ import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
 import com.example.juandie_hua.percenter.seting.wx_bdgh;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.app.BaseFragment;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.lunbo.ADInfo;
 import com.example.juandie_hua.lunbo.CycleViewPager;
 import com.example.juandie_hua.lunbo.ViewFactory;
-import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.adapter.GridMenuAdapter;
@@ -87,7 +83,6 @@ import com.example.juandie_hua.ui.me.MyCouponActivity;
 import com.meiqia.core.MQManager;
 import com.meiqia.core.bean.MQMessage;
 import com.meiqia.core.callback.OnGetMessageListCallback;
-import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
 public class Home extends BaseFragment implements te_oncl {
     View v;
@@ -200,7 +195,7 @@ public class Home extends BaseFragment implements te_oncl {
 
             x.view().inject(this, v);
 //            Fengmian.regid = JPushInterface.getRegistrationID(getActivity());
-            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
+//            SharedPreferenceUtils.setPreference(getActivity(), Constant.regid, JPushInterface.getRegistrationID(getActivity()), "S");
             setviewdata();
             setviewhw();
             setviewlisten();

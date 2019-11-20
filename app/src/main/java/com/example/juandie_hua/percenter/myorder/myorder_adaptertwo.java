@@ -69,7 +69,7 @@ public class myorder_adaptertwo extends BaseAdapter {
         if (TextUtils.isEmpty(data.getGoodSpec())) {
             add.te_spec.setText("");
         } else {
-            add.te_spec.setText("已选尺寸：" + data.getGoodSpec());
+            add.te_spec.setText("已选" + data.getGoodSpec());
         }
 
         String price = data.getPrice();

@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.BaseActivity;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;

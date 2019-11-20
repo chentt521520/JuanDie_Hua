@@ -102,7 +102,7 @@ public class SubCategoryAdapter extends BaseAdapter {
                 CategoryList.AttrList.AttrListBean attrListBean = attrList.get(position1);
 
 //                UiHelper.toGoodListActivity((Activity) context, category.getCat_id(), attrListBean.getAttr_value(), attrListBean.getFilter_attr(), attrListBean.getOrder(), attrListBean.getBy(), positionget);
-                UiHelper.toGoodListActivity((Activity) context, category.getCat_id(), "", attrListBean.getGoods_id(), attrListBean.getOrder(), attrListBean.getBy(), positionget);
+                UiHelper.toGoodListActivity((Activity) context, category.getCat_id(), "", attrListBean.getFilter_attr(), attrListBean.getOrder(), attrListBean.getBy(), positionget);
             }
         });
 

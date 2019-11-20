@@ -1,6 +1,5 @@
 package com.example.juandie_hua.ui.tab;
 
-import java.io.File;
 import java.lang.ref.WeakReference;
 
 import org.json.JSONException;
@@ -28,10 +27,9 @@ import com.example.juandie_hua.R;
 import com.example.juandie_hua.app.App;
 import com.example.juandie_hua.app.BaseFragment;
 import com.example.juandie_hua.app.Constant;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.helper.UiHelper;
-import com.example.juandie_hua.mainactivity.Fengmian;
 import com.example.juandie_hua.mainactivity.Landing;
 import com.example.juandie_hua.model.ResUser;
 import com.example.juandie_hua.percenter.seting.wx_bdgh;
@@ -48,7 +46,6 @@ import com.example.juandie_hua.utils.DecimalUtil;
 import com.example.juandie_hua.utils.SharedPreferenceUtils;
 import com.example.juandie_hua.view.CustomDialog;
 import com.jauker.widget.BadgeView;
-import com.meiqia.meiqiasdk.util.MQIntentBuilder;
 
 
 /**

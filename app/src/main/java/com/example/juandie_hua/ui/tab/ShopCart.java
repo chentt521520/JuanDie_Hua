@@ -48,7 +48,7 @@ import com.example.juandie_hua.mainactivity.adapter.OnGoodListCallback;
 import com.example.juandie_hua.model.GoodSpecs;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.app.BaseFragment;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Landing;
@@ -64,6 +64,7 @@ import com.example.juandie_hua.model.ShopCartRecommond;
 import com.example.juandie_hua.mycar.orderpay.orderin;
 import com.example.juandie_hua.ui.adapter.GoodSpecsAdapter;
 import com.example.juandie_hua.ui.login.LoginAty;
+import com.example.juandie_hua.utils.DecimalUtil;
 import com.example.juandie_hua.utils.StrUtils;
 import com.example.juandie_hua.view.CusPopWindow;
 import com.example.juandie_hua.view.CustomDialog;
@@ -742,7 +743,7 @@ public class ShopCart extends BaseFragment {
 
         ImageUtils.setImage(getContext(), shopCartGood.getGoods_thumb(), imageView);
         te_name.setText(shopCartGood.getGoods_name());
-        te_pricegg.setText("￥" + shopCartGood.getGoods_price());
+        te_pricegg.setText(DecimalUtil.priceAddDecimal(shopCartGood.getGoods_price()));
 
         for (GoodSpecs specs : specsList) {
             for (GoodSpecs.ItemsBean itemsBean : specs.getItems()) {

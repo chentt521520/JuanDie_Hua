@@ -43,8 +43,7 @@ public class MyReceiver extends BroadcastReceiver {
 			Logger.d(TAG, "[MyReceiver] onReceive - " + intent.getAction()
 					+ ", extras: " + printBundle(bundle));
 
-			if (JPushInterface.ACTION_REGISTRATION_ID
-					.equals(intent.getAction())) {
+            if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
                 String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
 
                 SharedPreferenceUtils.setPreference(context, Constant.regid, regId, "S");

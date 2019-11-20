@@ -446,7 +446,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onRestart() {
-        // TODO Auto-generated method stub
         super.onRestart();
 
     }

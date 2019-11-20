@@ -1,8 +1,6 @@
 package com.example.juandie_hua.ui.login;
 
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,9 +8,7 @@ import org.xutils.x;
 import org.xutils.common.Callback.CancelledException;
 import org.xutils.view.annotation.ViewInject;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -23,18 +19,11 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.juandie_hua.R;
-import com.example.juandie_hua.helper.UiHelper;
-import com.example.juandie_hua.ui.MainActivity;
-import com.example.juandie_hua.ui.tab.Home;
-import com.example.juandie_hua.ui.tab.Me;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.Constant;
-import com.example.juandie_hua.app.HttpUrl;
-import com.example.juandie_hua.mainactivity.Fengmian;
-import com.example.juandie_hua.ui.tab.ShopCart;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.percenter.TimerTextView;
 import com.example.juandie_hua.utils.SharedPreferenceUtils;

@@ -23,7 +23,7 @@ import com.example.juandie_hua.R;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.ui.me.adapter.MyCouponAdapter;
 import com.example.juandie_hua.app.BaseActivity;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
 import com.example.juandie_hua.model.MyCoupon;

@@ -43,13 +43,11 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import cn.jpush.android.api.JPushInterface;
-
 import com.example.juandie_hua.R;
 import com.example.juandie_hua.ui.MainActivity;
 import com.example.juandie_hua.app.BaseActivity;
 import com.example.juandie_hua.app.Constant;
-import com.example.juandie_hua.app.HttpUrl;
+import com.example.juandie_hua.http.HttpUrl;
 import com.example.juandie_hua.calender.utils.ImageUtils;
 import com.example.juandie_hua.helper.UiHelper;
 import com.example.juandie_hua.mainactivity.Xutils_Get_Post.XCallBack;
@@ -249,7 +247,7 @@ public class Fengmian extends BaseActivity {
                 }
             }, 3000);
         }
-        SharedPreferenceUtils.setPreference(Fengmian.this, Constant.regid, JPushInterface.getRegistrationID(Fengmian.this), "S");
+//        SharedPreferenceUtils.setPreference(Fengmian.this, Constant.regid, JPushInterface.getRegistrationID(Fengmian.this), "S");
 
         try {
             ApplicationInfo appInfo = this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);

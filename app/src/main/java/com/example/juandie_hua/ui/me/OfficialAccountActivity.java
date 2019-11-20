@@ -66,8 +66,7 @@ public class OfficialAccountActivity extends BaseActivity {
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (ContextCompat.checkSelfPermission(OfficialAccountActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions(OfficialAccountActivity.this, PERMISSIONS_STORAGE,
-                                    1);
+                            ActivityCompat.requestPermissions(OfficialAccountActivity.this, PERMISSIONS_STORAGE, 1);
                         } else {
                             saveImageToGallery(OfficialAccountActivity.this, bitmap);
                         }
@@ -113,14 +112,15 @@ public class OfficialAccountActivity extends BaseActivity {
      */
     public void toWeChatScanDirect() {
         try {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI"));
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.tencent.mm");
             intent.putExtra("LauncherUI.From.Scaner.Shortcut", true);
-//            intent.setFlags(335544320);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setAction("android.intent.action.VIEW");
             startActivity(intent);
         } catch (Exception e) {
+            toast("无法跳转到微信，请检查是否安装了微信");
         }
+
     }
 
 
@@ -144,8 +144,12 @@ public class OfficialAccountActivity extends BaseActivity {
             fos.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            toast("保存失败");
+            return;
         } catch (IOException e) {
             e.printStackTrace();
+            toast("保存失败");
+            return;
         }
         showDialog();
 
