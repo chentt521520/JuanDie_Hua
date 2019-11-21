@@ -14,6 +14,7 @@ import org.xutils.common.Callback.CancelledException;
 import org.xutils.http.RequestParams;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -64,13 +66,11 @@ import com.tendcloud.tenddata.TCAgent;
 
 public class Fengmian extends BaseActivity {
     no_internet no_internet;
-//    public static String openid = "", phpsid = "";
 
     String gx_content = "", type = "1", android_url = "";
 
     private ImageView startButton;
     private ImageView[] indicators = null;
-    int w_screen = 0;
 
     ImageView ima_ydy;
     private RelativeLayout view_pager_view;
@@ -82,8 +82,7 @@ public class Fengmian extends BaseActivity {
     String[] goods_id = {"324", "338"};
     private int versionCode;
     private CusPopWindow popWindow;
-    private int first;
-    private String newVersionName;
+    private boolean first;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,35 +216,44 @@ public class Fengmian extends BaseActivity {
 
         //获取当前版本是否一致
         String bbh = (String) SharedPreferenceUtils.getPreference(this, Constant.bbh, "S");
-        //版本不一致
-        if (TextUtils.isEmpty(bbh) || !TextUtils.equals(bbh, versionCode + "")) {
-            //检测APP版本
-            if (new internet_if().isNetworkConnected(this)) {
-                checkVersion();
-            } else {
-                checkNet();
-            }
-        }
 
-        first = (int) SharedPreferenceUtils.getPreference(this, Constant.first, "I");
-        if (first == 0) {
+        first = (boolean) SharedPreferenceUtils.getPreference(this, Constant.first, "B");
+        if (first) {
             //首次登陆
             view_pager_view.setVisibility(View.VISIBLE);
             ima_ydy.setVisibility(View.GONE);
-            SharedPreferenceUtils.setPreference(Fengmian.this, Constant.first, 1, "I");
-            SharedPreferenceUtils.setPreference(Fengmian.this, Constant.bbh, versionCode + "", "S");
+
+            //版本不一致
+            if (TextUtils.isEmpty(bbh) || !TextUtils.equals(bbh, versionCode + "")) {
+                //检测APP版本
+                if (new internet_if().isNetworkConnected(this)) {
+                    checkVersion();
+                } else {
+                    checkNet();
+                }
+            }
         } else {
             view_pager_view.setVisibility(View.GONE);
             ima_ydy.setVisibility(View.VISIBLE);
 
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    UiHelper.toActivity(Fengmian.this, MainActivity.class);
-                    finish();
+            //版本不一致
+            if (TextUtils.isEmpty(bbh) || !TextUtils.equals(bbh, versionCode + "")) {
+                //检测APP版本
+                if (new internet_if().isNetworkConnected(this)) {
+                    checkVersion();
+                } else {
+                    checkNet();
                 }
-            }, 3000);
+            }
+
+//            new Handler().postDelayed(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    UiHelper.toActivity(Fengmian.this, MainActivity.class);
+//                    finish();
+//                }
+//            }, 3000);
         }
 //        SharedPreferenceUtils.setPreference(Fengmian.this, Constant.regid, JPushInterface.getRegistrationID(Fengmian.this), "S");
 
@@ -261,12 +269,15 @@ public class Fengmian extends BaseActivity {
 
             TCAgent.setReportUncaughtExceptions(true);
 
-        } catch (NameNotFoundException e) {
+        } catch (
+                NameNotFoundException e) {
             e.printStackTrace();
         }
 
         String ss = Build.BRAND + "";
-        if (ss.toUpperCase().equals("OPPO")) {// 解决oppo回收超时bug
+        if (ss.toUpperCase().
+
+                equals("OPPO")) {// 解决oppo回收超时bug
             try {
                 Class<?> clazz = Class.forName("java.lang.Daemons$FinalizerWatchdogDaemon");
                 Method method = clazz.getSuperclass().getDeclaredMethod("stop");
@@ -278,6 +289,7 @@ public class Fengmian extends BaseActivity {
                 e.printStackTrace();
             }
         }
+
     }
 
     private void checkNet() {
@@ -340,11 +352,11 @@ public class Fengmian extends BaseActivity {
 
                     if (response.getString("status").equals("1")) {
                         JSONObject data = response.getJSONObject("data");
-                        newVersionName = data.getString("version");
+                        String code = data.getString("versionCode");
 
                         //不用更新
                         if (versionCode >= data.getInt("versionCode")) {
-                            toMainPage();
+                            toMainPage(code);
                         }
                         //可更新
                         else {
@@ -376,8 +388,13 @@ public class Fengmian extends BaseActivity {
         });
     }
 
-    private void toMainPage() {
-        if (first == 1) {
+    private void toMainPage(String code) {
+        if (first) {
+            SharedPreferenceUtils.setPreference(Fengmian.this, Constant.first, false, "B");
+            if (!TextUtils.isEmpty(code)) {
+                SharedPreferenceUtils.setPreference(Fengmian.this, Constant.bbh, code, "S");
+            }
+        } else {
             new Handler().postDelayed(new Runnable() {
 
                 @Override
@@ -398,7 +415,7 @@ public class Fengmian extends BaseActivity {
         RequestParams params = new RequestParams(downloadurl);
         params.setAutoRename(true);// 断点下载
         String path = Constant.PATH + Constant.SETUP + File.separator;
-        String apkName = "juandie-v" + newVersionName + ".apk";
+        String apkName = "JuanDie.apk";
         params.setSaveFilePath(path + apkName);//"/mnt/sdcard/JuanDie.apk"
         x.http().get(params, new Callback.ProgressCallback<File>() {
             @Override
@@ -417,17 +434,33 @@ public class Fengmian extends BaseActivity {
             @Override
             public void onSuccess(File arg0) {
                 popWindow.dismiss();
-                Intent intent = new Intent(Intent.ACTION_VIEW);
+
+                Uri uri = null;
+                Intent intent = new Intent();
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.setDataAndType(Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "JuanDie.apk")), "application/vnd.android.package-archive");
-                intent.setDataAndType(Uri.fromFile(arg0), "application/vnd.android.package-archive");
-                startActivity(intent);
+                try {
+                    if (Build.VERSION.SDK_INT >= 24) {//7.0 Android N
+                        intent.setAction(Intent.ACTION_INSTALL_PACKAGE);
+                        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//7.0以后，系统要求授予临时uri读取权限，安装完毕以后，系统会自动收回权限，该过程没有用户交互
+                        uri = FileProvider.getUriForFile(Fengmian.this, "com.example.juandie_hua.fileprovider", arg0);
+                    } else {//7.0以下
+                        intent.setAction(Intent.ACTION_VIEW);
+                        uri = Uri.fromFile(arg0);
+                    }
+                    intent.setDataAndType(uri, "application/vnd.android.package-archive");
+                    startActivity(intent);
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (ActivityNotFoundException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
             @Override
             public void onLoading(long arg0, long arg1, boolean arg2) {
-                // TODO Auto-generated method stub
-
                 int size = (int) arg0;
                 int pro = (int) arg1;
                 pbBar.setMax(size);
@@ -478,8 +511,10 @@ public class Fengmian extends BaseActivity {
                     grant = true;
                 }
             }
-            if (grant) {
+            if (grant) {//申请权限通过
                 pop_gx();
+            } else {//申请权限拒绝
+                toMainPage("");
             }
         }
     }
