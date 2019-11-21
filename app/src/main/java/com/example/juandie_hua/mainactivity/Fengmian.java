@@ -560,7 +560,7 @@ public class Fengmian extends BaseActivity {
                 }
             });
         }
-
+        builder.setCancelable(false);
         updateDialog = builder.create();
         updateDialog.show();
     }
