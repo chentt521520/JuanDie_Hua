@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_shop_cart_view"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="125dp"
     android:orientation="horizontal">
 
     <ImageView
@@ -46,7 +46,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@string/text_null"
-            android:textColor="@color/black_666666"
+            android:textColor="@color/grey_999999"
             android:textSize="@dimen/font_size_12" />
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_marginStart="@dimen/space_size_10"
             android:layout_toEndOf="@+id/item_shop_cart_good_price"
             android:text="@string/text_null"
-            android:textColor="@color/black_666666"
+            android:textColor="@color/grey_999999"
             android:textSize="@dimen/font_size_10" />
 
         <LinearLayout
@@ -98,7 +98,7 @@
 
             <Button
                 android:id="@+id/item_shop_cart_good_count_de"
-                android:layout_width="@dimen/space_size_35"
+                android:layout_width="@dimen/space_size_30"
                 android:layout_height="match_parent"
                 android:background="@drawable/biankuangqb2"
                 android:gravity="center"
@@ -122,7 +122,7 @@
 
             <Button
                 android:id="@+id/item_shop_cart_good_count_increase"
-                android:layout_width="@dimen/space_size_35"
+                android:layout_width="@dimen/space_size_30"
                 android:layout_height="match_parent"
                 android:background="@drawable/biankuangqb2"
                 android:gravity="center"
