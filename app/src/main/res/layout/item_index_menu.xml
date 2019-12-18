@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:paddingTop="@dimen/space_size_10"
+    android:paddingBottom="@dimen/space_size_10">
 
     <ImageView
         android:id="@+id/item_index_menu_image"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_width="@dimen/space_size_80"
+        android:layout_height="@dimen/space_size_80"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/get_coupon_christmas" />
 
     <TextView
         android:id="@+id/item_index_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/font_size_13"
-        android:textColor="#494949"/>
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/space_size_5"
+        android:textColor="#494949"
+        android:textSize="@dimen/font_size_14" />
 
 </LinearLayout>

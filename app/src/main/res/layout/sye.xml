@@ -84,98 +84,152 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/gwc_swp"
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+    <!--android:id="@+id/gwc_swp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/sye_horscr">-->
+
+    <ScrollView
+        android:id="@+id/sye_scro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sye_horscr">
+        android:layout_below="@id/sye_horscr"
+        android:background="#AA2224"
+        android:scrollbars="none">
 
-        <ScrollView
-            android:id="@+id/sye_scro"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/sye_refrag"
+                android:layout_width="match_parent"
+                android:layout_height="230dp">
+
+                <fragment
+                    android:id="@+id/sye_viewpagerlunbos"
+                    android:name="com.example.juandie_hua.lunbo.CycleViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:descendantFocusability="blocksDescendants" />
+            </RelativeLayout>
+
+            <com.example.juandie_hua.mainactivity.goods.MyGridView
+                android:id="@+id/index_navigation_grid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:horizontalSpacing="@dimen/space_size_7"
+                android:listSelector="@null"
+                android:numColumns="4"
+                android:padding="@dimen/space_size_7"
+                android:verticalSpacing="@dimen/space_size_10" />
 
-                <RelativeLayout
-                    android:id="@+id/sye_refrag"
-                    android:layout_width="match_parent"
-                    android:layout_height="230dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <fragment
-                        android:id="@+id/sye_viewpagerlunbos"
-                        android:name="com.example.juandie_hua.lunbo.CycleViewPager"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:descendantFocusability="blocksDescendants" />
-                </RelativeLayout>
+                <ImageView
+                    android:id="@+id/index_grid_christmas_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/space_size_5"
+                    android:src="@mipmap/list_title_christmas" />
 
                 <com.example.juandie_hua.mainactivity.goods.MyGridView
-                    android:id="@+id/index_navigation_grid"
+                    android:id="@+id/index_grid_christmas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/index_grid_christmas_title"
+                    android:background="@color/transparent"
                     android:listSelector="@null"
-                    android:numColumns="4"
-                    android:paddingTop="@dimen/space_size_10"
-                    android:paddingBottom="@dimen/space_size_10"
-                    android:verticalSpacing="@dimen/space_size_10" />
+                    android:numColumns="2"
+                    android:paddingStart="@dimen/space_size_2"
+                    android:paddingEnd="@dimen/space_size_2"
+                    android:paddingBottom="@dimen/space_size_5"
+                    android:verticalSpacing="@dimen/space_size_5" />
 
-                <LinearLayout
-                    android:id="@+id/show_receive_coupon_view"
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/show_receive_coupon_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <View
+                    style="@style/ui_line"
+                    android:layout_marginTop="@dimen/space_size_10"
+                    android:layout_marginBottom="@dimen/space_size_5" />
+
+                <ImageView
+                    android:id="@+id/index_new_user_welfare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="#ffffff"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/index_red_package" />
 
-                    <View
-                        style="@style/ui_line"
-                        android:layout_marginTop="@dimen/space_size_10"
-                        android:layout_marginBottom="@dimen/space_size_5" />
-
-                    <ImageView
-                        android:id="@+id/index_new_user_welfare"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#ffffff"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/index_red_package" />
-
-                    <View
-                        style="@style/ui_line"
-                        android:layout_marginTop="@dimen/space_size_5"
-                        android:layout_marginBottom="@dimen/space_size_10" />
-                </LinearLayout>
-
-                <include layout="@layout/include_index_good_list" />
-
+                <View
+                    style="@style/ui_line"
+                    android:layout_marginTop="@dimen/space_size_5"
+                    android:layout_marginBottom="@dimen/space_size_10" />
             </LinearLayout>
-        </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
 
-    <LinearLayout
+            <include layout="@layout/include_index_good_list" />
+
+        </LinearLayout>
+    </ScrollView>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/receive_coupon_view_christmas"
+            android:layout_width="@dimen/space_size_120"
+            android:layout_height="@dimen/space_size_120"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="@dimen/space_size_10"
+            android:layout_marginTop="450dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/coupon_view_close_christmas"
+                android:layout_width="@dimen/space_size_30"
+                android:layout_height="@dimen/space_size_30"
+                android:layout_alignParentEnd="true" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/get_coupon_christmas" />
+        </RelativeLayout>
+
 
         <ImageView
             android:id="@+id/sye_gotop"
             android:layout_width="@dimen/space_size_50"
             android:layout_height="@dimen/space_size_50"
-            android:layout_gravity="end"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/space_size_50"
             android:paddingEnd="@dimen/space_size_15"
             android:paddingBottom="@dimen/space_size_15"
-            android:src="@drawable/top"
+            android:src="@mipmap/scroll_top"
             android:visibility="gone" />
+
 
         <RelativeLayout
             android:id="@+id/get_red_package"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:paddingBottom="@dimen/space_size_10"
             android:visibility="gone">
 
@@ -237,6 +291,6 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

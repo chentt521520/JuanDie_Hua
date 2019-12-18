@@ -137,7 +137,10 @@
                     android:layout_height="match_parent"
                     android:background="#ffffff"
                     android:numColumns="2"
-                    android:padding="@dimen/space_size_5"
+                    android:paddingStart="@dimen/space_size_2"
+                    android:paddingTop="@dimen/space_size_5"
+                    android:paddingEnd="@dimen/space_size_2"
+                    android:paddingBottom="@dimen/space_size_5"
                     android:scrollbars="none" />
             </android.support.v4.widget.SwipeRefreshLayout>
 

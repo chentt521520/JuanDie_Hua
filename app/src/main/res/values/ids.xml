@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--一键登录-->
+    <item name="fast_login_logo" type="id" />
+    <item name="fast_login_phone_number" type="id" />
+    <item name="fast_login_btn" type="id" />
+    <item name="fast_login_other_phone" type="id" />
+    <item name="fast_login_wx" type="id" />
+    <item name="fast_login_wb" type="id" />
+    <item name="fast_login_qq" type="id" />
+
+</resources>

@@ -28,6 +28,7 @@
     <color name="red_main">#EC008C</color>
     <color name="red_d5001b">#d5001b</color>
     <color name="red">#da0000</color>
+    <color name="login_pink">#ea9fa4</color>
 
     <color name="transparent">#00000000</color>
 </resources>

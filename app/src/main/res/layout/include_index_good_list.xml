@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/white_fff"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/space_size_10">
 
     <!--新品专区-->
     <LinearLayout
@@ -48,7 +50,6 @@
                 style="@style/ui_index_line"
                 android:background="@color/black_333333" />
 
-
         </LinearLayout>
 
         <TextView
@@ -75,7 +76,11 @@
         android:layout_height="wrap_content"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
 
     <!--热销鲜花-->
     <LinearLayout
@@ -135,10 +140,13 @@
         android:id="@+id/sye_mygridre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
     <!--精品礼盒系列-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -197,10 +205,13 @@
         android:id="@+id/sye_mygridjinx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
     <!--生活鲜花-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -260,10 +271,13 @@
         android:id="@+id/sye_mygridsheng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
     <!--开业花篮-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -323,9 +337,13 @@
         android:id="@+id/sye_mygridkye"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
-        android:numColumns="2" />
+        android:numColumns="2"
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
     <!--绿植盆栽-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -383,10 +401,13 @@
         android:id="@+id/sye_mygridlvz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
 
     <!--创意礼品-->
     <LinearLayout
@@ -445,8 +466,11 @@
         android:id="@+id/sye_mygridlip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:listSelector="@null"
         android:numColumns="2"
-        android:padding="@dimen/space_size_5" />
+        android:paddingStart="@dimen/space_size_2"
+        android:paddingEnd="@dimen/space_size_2"
+        android:paddingBottom="@dimen/space_size_5"
+        android:paddingTop="@dimen/space_size_5"
+        android:verticalSpacing="@dimen/space_size_5" />
 </LinearLayout>

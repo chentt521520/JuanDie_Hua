@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white_fff">
+    android:background="@color/white_fff"
+    android:orientation="vertical">
 
     <com.example.juandie_hua.mainactivity.Cannotscroll_viewpager
         android:id="@+id/mainact_vp"
@@ -13,8 +13,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#f4f4f4" />
+        android:layout_height="5dp"
+        android:background="@drawable/bg_shade_line" />
 
     <LinearLayout
         android:layout_width="match_parent"
